@@ -20,46 +20,52 @@ import com.ent_ubp_android.sliding_menu.model.NavDrawerItem;
 
 import java.util.ArrayList;
 
+/**
+ * Activite permettant de gerer le Slider Menu.
+ * Chaque entrer du menu référencera un fragment
+ */
 public class MainActivity extends Activity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
     private ActionBarDrawerToggle mDrawerToggle;
-
-    // nav drawer title
-    private CharSequence mDrawerTitle;
-
-    // used to store app title
+    // Titre de l'application
     private CharSequence mTitle;
-
-    // slide menu items
+    // Item contenu dans le menu
     private String[] navMenuTitles;
+    TypedArray navMenuIcons;
+    ArrayList<NavDrawerItem> navDrawerItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mTitle = mDrawerTitle = getTitle();
+        //Recupere le titre de l'application
+        mTitle = getTitle();
 
-        // load slide menu items
+        // Récupère le tableau de titres (entrées du menu)
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
-        // nav drawer icons from resources
-        TypedArray navMenuIcons = getResources()
+        // Récupère le tableau d'icones (associés aux entrées du menu)
+        navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);
 
+        //On récupère le Layout de MainActivity
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+        //On récupère la vue permettant de gérer le SliderMenu
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
 
-        ArrayList<NavDrawerItem> navDrawerItems = new ArrayList<NavDrawerItem>();
 
-        // adding nav drawer items to array
-        // Home
-        navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons.getResourceId(0, -1)));
+        navDrawerItems = new ArrayList<NavDrawerItem>();
+        // On ajout nos items (couple : nom/icone) du menu dans une liste
+        for(int i = 0; i < navMenuTitles.length; i++ )
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1)));
 
-        // Recycle the typed array
+        // Recycle le TypedArray (obligatoire, pour etre réutilisable)
         navMenuIcons.recycle();
 
+        //On active l'evenement click sur le slider menu
         mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
 
         // setting the nav drawer list adapter
@@ -72,8 +78,8 @@ public class MainActivity extends Activity {
         getActionBar().setHomeButtonEnabled(true);
 
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
-                R.string.app_name, // nav drawer open - description for accessibility
-                R.string.app_name // nav drawer close - description for accessibility
+                R.string.drawer_open, // nav drawer open - description for accessibility
+                R.string.drawer_close // nav drawer close - description for accessibility
         ) {
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(mTitle);
@@ -82,7 +88,7 @@ public class MainActivity extends Activity {
             }
 
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(mDrawerTitle);
+                getActionBar().setTitle(R.string.slider_menu_name);
                 // calling onPrepareOptionsMenu() to hide action bar icons
                 invalidateOptionsMenu();
             }
@@ -150,21 +156,6 @@ public class MainActivity extends Activity {
             case 0:
                 fragment = new HomeFragment();
                 break;
-            /*case 1:
-                fragment = new FindPeopleFragment();
-                break;
-            case 2:
-                fragment = new PhotosFragment();
-                break;
-            case 3:
-                fragment = new CommunityFragment();
-                break;
-            case 4:
-                fragment = new PagesFragment();
-                break;
-            case 5:
-                fragment = new WhatsHotFragment();
-                break;*/
 
             default:
                 break;
@@ -179,6 +170,7 @@ public class MainActivity extends Activity {
             mDrawerList.setItemChecked(position, true);
             mDrawerList.setSelection(position);
             setTitle(navMenuTitles[position]);
+            getActionBar().setIcon(navDrawerItems.get(position).getIcon());
             mDrawerLayout.closeDrawer(mDrawerList);
         } else {
             // error in creating fragment
