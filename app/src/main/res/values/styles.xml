@@ -43,5 +43,13 @@
 
         <item name="android:progressDrawable">@drawable/progress_bg</item>
     </style>
->>>>>>> Ajout interface profil
+
+
+
+    <!-- Theme pour titre-->
+    <style name="UbpTheme.TitleStyle" parent="@android:style/Theme.Holo.Light">
+        <item name="android:background">@color/list_divider</item>
+        <item name="android:textColor">@color/list_item_title</item>
+    </style>
+
 </resources>

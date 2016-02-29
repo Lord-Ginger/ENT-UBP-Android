@@ -81,13 +81,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/midTitle"
-            android:background="@color/list_divider">
+            android:layout_alignBottom="@+id/RL">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-            android:layout_gravity="layout_centerHorizontal"
-
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Cours d'aujourdhui"
+            android:style="@styles/UbpTheme.TitleStyle"/>
     </LinearLayout>
 
 
