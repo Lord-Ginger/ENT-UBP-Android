@@ -14,9 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import com.ent_ubp_android.app.fragment.HomeFragment;
-import com.ent_ubp_android.sliding_menu.adapter.NavDrawerListAdapter;
-import com.ent_ubp_android.sliding_menu.model.NavDrawerItem;
+import com.ent_ubp_android.app.fragment.AgendaFragment;
+import com.ent_ubp_android.app.adapter.NavDrawerListAdapter;
+import com.ent_ubp_android.app.model.NavDrawerItem;
 
 import java.util.ArrayList;
 
@@ -154,7 +154,7 @@ public class MainActivity extends Activity {
         Fragment fragment = null;
         switch (position) {
             case 0:
-                fragment = new HomeFragment();
+                fragment = new AgendaFragment();
                 break;
 
             default:

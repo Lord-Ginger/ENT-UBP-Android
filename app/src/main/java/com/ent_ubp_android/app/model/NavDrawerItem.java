@@ -1,4 +1,4 @@
-package com.ent_ubp_android.sliding_menu.model;
+package com.ent_ubp_android.app.model;
 
 public class NavDrawerItem {
 

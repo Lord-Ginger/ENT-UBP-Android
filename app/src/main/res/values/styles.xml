@@ -13,4 +13,24 @@
         <item name="android:textColor">@color/action_bar_title</item>
     </style>
 
+    <!-- Style pour agenda -->
+    <style name="agenda_text_day">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="agenda_text_content">
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_marginBottom">3dp</item>
+        <item name="android:layout_marginTop">3dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/agenda_text_content</item>
+    </style>
+
+    <style name="agenda_layout_entry">
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
 </resources>

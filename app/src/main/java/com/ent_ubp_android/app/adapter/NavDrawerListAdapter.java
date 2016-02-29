@@ -1,4 +1,4 @@
-package com.ent_ubp_android.sliding_menu.adapter;
+package com.ent_ubp_android.app.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.sliding_menu.model.NavDrawerItem;
+import com.ent_ubp_android.app.model.NavDrawerItem;
 
 import java.util.ArrayList;
 

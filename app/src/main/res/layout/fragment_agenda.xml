@@ -1,0 +1,18 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.ent_ubp_android.app.fragment.AgendaFragment"
+            android:fillViewport="false"
+            android:id="@+id/agenda_scroll">
+
+    <LinearLayout android:id="@+id/agenda_main_layout"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="vertical"
+    >
+
+
+    </LinearLayout>
+
+</ScrollView>
