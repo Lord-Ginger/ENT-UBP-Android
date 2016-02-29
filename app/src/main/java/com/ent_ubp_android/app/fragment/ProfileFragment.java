@@ -14,13 +14,6 @@ import java.util.ArrayList;
 
 public class ProfileFragment extends Fragment {
 
-    ExpandableListView expand_List;
-    ExpandableListAdapter expand_Adapt;
-
-    ArrayList<String> groupItem = new ArrayList<String>();
-    ArrayList<Object> childItem = new ArrayList<Object>();
-
-
     String[] cour = new String[]{"Histoire","Géographie","Mathématique","Français","Anglais"};
     String[] salle = new String[]{"123er132","dr312er","az1254ae","hjkhjk123","arb1235"};
     String[] description = new String[]{"(1)ejzh eoihezavhiazg ehgazgazpgizaog oijrgairg",
@@ -37,41 +30,17 @@ public class ProfileFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        /*Paramêtrage de la liste*/
+        //TODO:créer l'agenda
 
-        expand_List = (ExpandableListView) rootView.findViewById(R.id.expandableListView);
-        expand_List.setDividerHeight(2);
-        expand_List.setGroupIndicator(null);
-        expand_List.setClickable(true);
-        setGroupItem();
-        setChildItem();
-g
 
-        expand_List.setAdapter(expand_Adapt);
 
         //TODO:Faire la progressBar (heure_prévu - heure_fais)
 
 
 
 
+
         return rootView;
     }
-
-    public void setGroupItem(){
-        for (String text:cour) {
-            groupItem.add(text);
-        }
-
-    }
-
-    public void setChildItem(){
-        ArrayList<String> child = new ArrayList<String>();
-        for (int i=0;i<cour.length;i++){
-            child.add(salle[i]);
-            child.add(description[i]);
-            childItem.add(child);
-        }
-    }
-
 
 }

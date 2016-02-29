@@ -17,17 +17,16 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 import com.ent_ubp_android.app.R;
 
-//TODO: trouver quoi faire : xml list_item et list_group
 
-public class ExpandableListAdapter extends BaseExpandableListAdapter {
+public class ExpListAdapter extends BaseExpandableListAdapter {
 
     private Context _context;
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<String>> _listDataChild;
 
-    public ExpandableListAdapter(Context context, List<String> listDataHeader,
-                                 HashMap<String, List<String>> listChildData) {
+    public ExpListAdapter(Context context, List<String> listDataHeader,
+                          HashMap<String, List<String>> listChildData) {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
