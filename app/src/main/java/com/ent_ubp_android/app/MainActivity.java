@@ -64,7 +64,7 @@ public class MainActivity extends Activity {
         navDrawerItems = new ArrayList<NavDrawerItem>();
         // On ajout nos items (couple : nom/icone) du menu dans une liste
         for(int i = 0; i < navMenuTitles.length; i++ )
-            navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourcesId(i, -1)));
+            navDrawerItems.add(new NavDrawerItem(navMenuTitles[i], navMenuIcons.getResourceId(i, -1)));
 
         // Recycle le TypedArray (obligatoire, pour etre réutilisable)
         navMenuIcons.recycle();
