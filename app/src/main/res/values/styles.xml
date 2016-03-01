@@ -33,4 +33,21 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+
+    <!-- Theme pour profil-->
+    <style name="profile_Style" parent="@android:style/Theme.Holo.Light">
+        <item name="android:background">@color/counter_text_bg</item>
+        <item name="android:textColor">@color/list_item_title</item>
+
+        <item name="android:progressDrawable">@drawable/progress_bg</item>
+    </style>
+
+
+
+    <!-- Theme pour titre-->
+    <style name="title_Style" parent="@android:style/Theme.Holo.Light">
+        <item name="android:background">@color/list_divider</item>
+        <item name="android:textColor">@color/list_item_title</item>
+    </style>
+
 </resources>

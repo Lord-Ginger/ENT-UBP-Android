@@ -17,9 +17,10 @@ import android.widget.ListView;
 import com.ent_ubp_android.app.fragment.AgendaFragment;
 import com.ent_ubp_android.app.adapter.NavDrawerListAdapter;
 import com.ent_ubp_android.app.model.NavDrawerItem;
+import com.ent_ubp_android.app.fragment.ProfileFragment;
+
 
 import java.util.ArrayList;
-
 /**
  * Activite permettant de gerer le Slider Menu.
  * Chaque entrer du menu référencera un fragment
@@ -32,8 +33,9 @@ public class MainActivity extends Activity {
     private CharSequence mTitle;
     // Item contenu dans le menu
     private String[] navMenuTitles;
-    TypedArray navMenuIcons;
-    ArrayList<NavDrawerItem> navDrawerItems;
+  
+    private TypedArray navMenuIcons;
+    private ArrayList<NavDrawerItem> navDrawerItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,7 @@ public class MainActivity extends Activity {
         // Récupère le tableau de titres (entrées du menu)
         navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
 
+
         // Récupère le tableau d'icones (associés aux entrées du menu)
         navMenuIcons = getResources()
                 .obtainTypedArray(R.array.nav_drawer_icons);
@@ -55,7 +58,6 @@ public class MainActivity extends Activity {
 
         //On récupère la vue permettant de gérer le SliderMenu
         mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
-
 
         navDrawerItems = new ArrayList<NavDrawerItem>();
         // On ajout nos items (couple : nom/icone) du menu dans une liste
@@ -155,6 +157,10 @@ public class MainActivity extends Activity {
         switch (position) {
             case 0:
                 fragment = new AgendaFragment();
+                break;
+
+            case 1:
+                fragment = new ProfileFragment();
                 break;
 
             default:
