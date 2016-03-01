@@ -13,7 +13,6 @@
         <item name="android:textColor">@color/action_bar_title</item>
     </style>
 
-<<<<<<< HEAD
     <!-- Style pour agenda -->
     <style name="agenda_text_day">
         <item name="android:textStyle">bold</item>
@@ -34,10 +33,9 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
-=======
 
     <!-- Theme pour profil-->
-    <style name="UbpTheme.ProfileStyle" parent="@android:style/Theme.Holo.Light">
+    <style name="profile_Style" parent="@android:style/Theme.Holo.Light">
         <item name="android:background">@color/counter_text_bg</item>
         <item name="android:textColor">@color/list_item_title</item>
 
@@ -47,7 +45,7 @@
 
 
     <!-- Theme pour titre-->
-    <style name="UbpTheme.TitleStyle" parent="@android:style/Theme.Holo.Light">
+    <style name="title_Style" parent="@android:style/Theme.Holo.Light">
         <item name="android:background">@color/list_divider</item>
         <item name="android:textColor">@color/list_item_title</item>
     </style>

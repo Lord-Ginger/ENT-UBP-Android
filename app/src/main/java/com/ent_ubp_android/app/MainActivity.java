@@ -14,11 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-<<<<<<< HEAD
 import com.ent_ubp_android.app.fragment.AgendaFragment;
 import com.ent_ubp_android.app.adapter.NavDrawerListAdapter;
 import com.ent_ubp_android.app.model.NavDrawerItem;
-=======
 import com.ent_ubp_android.app.fragment.ProfileFragment;
 
 

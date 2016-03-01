@@ -26,9 +26,9 @@ public class AgendaFragment extends Fragment {
 
     private String salleCours[] = {"3002", "3002", "3002", "3002", "3002", "3002"};
 
-    private Calendar dateC[] = {new GregorianCalendar(2016, 0, 23), new GregorianCalendar(2016, 0, 23),
-            new GregorianCalendar(2016, 0, 24),  new GregorianCalendar(2016, 0, 24),
-            new GregorianCalendar(2016, 0, 25),  new GregorianCalendar(2016, 0, 25)};
+    private Calendar dateC[] = { new GregorianCalendar(2016, 1, 29),  new GregorianCalendar(2016, 1, 29)
+            , new GregorianCalendar(2016, 2, 1),  new GregorianCalendar(2016, 2, 1)
+            , new GregorianCalendar(2016, 2, 1), new GregorianCalendar(2016, 2,2)};
 
     private Calendar currentDate = null;
     /* Fin test Données */

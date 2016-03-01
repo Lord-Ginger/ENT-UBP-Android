@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" android:weightSum="1">
@@ -12,7 +12,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/RL"
             android:background="@drawable/hour_aff_bg"
-            android:weightSum="1" android:layout_alignParentRight="true" android:layout_alignParentEnd="true">
+            android:weightSum="1" >
 
 
         <LinearLayout
@@ -25,53 +25,75 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:progress="75"
                     android:id="@+id/progressBar"
             />
         </LinearLayout>
 
         <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearViewHeaderMid"
                 android:background="@drawable/hour_aff_bg" >
 
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="300px"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceButton"
-                    android:text="Heures prévues"
-                    android:id="@+id/textV1"
-                    android:layout_gravity="left"/>
-
+                    android:text="Heures prévues :"
+                    android:id="@+id/textV1"/>
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceButton"
-                    android:id="@+id/textHourPrev" android:layout_gravity="right"/>
+                    android:text="text"
+                    android:id="@+id/textHourPrev"
+                    android:layout_weight="1"/>
 
         </LinearLayout>
         <LinearLayout
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/linearViewHeaderBot"
-                android:background="@drawable/hour_aff_bg" android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true">
+                android:background="@drawable/hour_aff_bg">
             <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="300px"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceButton"
                     android:id="@+id/textV2"
-                    android:text="Heures faites"
-                    android:layout_gravity="left"
+                    android:text="Heures faites :"
                     />
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceButton"
-                    android:id="@+id/textHourDone" android:layout_gravity="right"/>
+                    android:text="textHourDone"
+                    android:id="@+id/textHourDone"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/linearViewHeaderLast"
+                android:background="@drawable/hour_aff_bg">
+            <TextView
+                    android:layout_width="300px"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceButton"
+                    android:id="@+id/textV3"
+                    android:text="Heures à faire :"
+            />
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceButton"
+                    android:text="textHourSous"
+                    android:id="@+id/textHourSous"
+            />
 
         </LinearLayout>
     </LinearLayout>
@@ -81,43 +103,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/midTitle"
-            android:layout_alignBottom="@+id/RL">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Cours d'aujourdhui"
-            android:style="@styles/UbpTheme.TitleStyle"/>
-    </LinearLayout>
+            android:background="@color/title_text_background2"
+            android:gravity="center_vertical"
+            android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
 
-    <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="ma" android:id="@+id/RL1"
-            android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@+id/RL">
-
-        <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/scrollView" android:layout_gravity="center_vertical"
-                android:layout_alignParentLeft="true" android:layout_marginLeft="0dp"
-                android:layout_alignParentTop="true" android:layout_marginTop="503dp">
-        </ScrollView>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Cours d&apos;aujourdhui"
-                android:id="@+id/textView3" android:layout_gravity="center_vertical"
-                android:layout_alignParentLeft="true" android:layout_marginLeft="768dp"
-                android:layout_alignParentTop="true" android:layout_marginTop="61dp"/>
+                android:layout_gravity="center"
+                android:text="Cours d'aujourdhui"
+                android:textStyle="bold"
+                android:textColor="@color/title_text_color2"/>
 
-    </RelativeLayout>
+    </LinearLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.ent_ubp_android.app.fragment.ProfileFragment"
+                android:fillViewport="false"
+                android:id="@+id/profil_scroll">
+
+        <LinearLayout android:id="@+id/profil_scroll_layout"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+        >
 
 
-</RelativeLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>
