@@ -13,6 +13,22 @@
         <item name="android:textColor">@color/action_bar_title</item>
     </style>
 
+    <!-- Theme pour l arborescence de la pop des formations, UE et Cours -->
+    <style name="arbo_theme" parent="Theme.AppCompat.Light.Dialog">
+    </style>
+
+    <style name="arbo_layout">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="arbo_text_titre">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+
     <!-- Style pour agenda -->
     <style name="agenda_text_day">
         <item name="android:textStyle">bold</item>

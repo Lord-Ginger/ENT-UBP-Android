@@ -33,9 +33,6 @@ public class AgendaFragment extends Fragment {
     private Calendar currentDate = null;
     /* Fin test Données */
 
-
-
-
     public AgendaFragment() {}
 
     @Override

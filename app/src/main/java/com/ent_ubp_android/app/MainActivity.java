@@ -3,6 +3,7 @@ package com.ent_ubp_android.app;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -100,6 +101,9 @@ public class MainActivity extends Activity {
         if (savedInstanceState == null) {
             // on first time display view for first nav item
             displayView(0);
+
+            Intent intent = new Intent(this, PopupFormationActivity.class);
+            startActivity(intent);
         }
     }
 
