@@ -49,7 +49,7 @@ public class ProfileFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        //TODO:créer l'agenda
+        //créer l'agenda
 
         dateSys = new GregorianCalendar();
 
@@ -83,7 +83,7 @@ public class ProfileFragment extends Fragment {
         }
 
 
-        //TODO:Faire la progressBar (heure_prévu - heure_fais)
+        //Faire la progressBar (heure_prévu - heure_fais)
 
         ((TextView)rootView.findViewById(R.id.textHourDone)).setText(Integer.toString(nbHourDone));
         ((TextView)rootView.findViewById(R.id.textHourPrev)).setText(Integer.toString(nbHourPrev));

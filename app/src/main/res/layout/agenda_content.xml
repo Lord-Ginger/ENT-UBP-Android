@@ -7,25 +7,24 @@
               android:background="@drawable/shape_agenda_cours"
               style="@style/agenda_layout_entry">
 
+            <TextView android:id="@+id/agenda_hour"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      style="@style/agenda_text_content"
+            />
 
-    <TextView android:id="@+id/agenda_hour"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              style="@style/agenda_text_content"
-    />
-
-    <TextView android:id="@+id/agenda_cours"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:lines="1"
-              style="@style/agenda_text_content"
-    />
+            <TextView android:id="@+id/agenda_cours"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:lines="1"
+                      style="@style/agenda_text_content"
+            />
 
 
-    <TextView android:id="@+id/agenda_place"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:lines="1"
-              style="@style/agenda_text_content"
-    />
+            <TextView android:id="@+id/agenda_place"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:lines="1"
+                      style="@style/agenda_text_content"
+            />
 </LinearLayout>

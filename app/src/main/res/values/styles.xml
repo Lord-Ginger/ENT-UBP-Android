@@ -14,18 +14,22 @@
     </style>
 
     <!-- Theme pour l arborescence de la pop des formations, UE et Cours -->
-    <style name="arbo_theme" parent="Theme.AppCompat.Light.Dialog">
+    <style name="arbo_theme" parent="Theme.AppCompat.Dialog">
     </style>
 
     <style name="arbo_layout">
-        <item name="android:padding">0dp</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:gravity">center_horizontal</item>
+        <item name="android:paddingTop">10dp</item>
     </style>
 
     <style name="arbo_text_titre">
         <item name="android:textStyle">bold</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">@dimen/pop_up_title_text_size</item>
+    </style>
+
+    <style name="arbo_text_view">
+        <item name="android:gravity">center_vertical</item>
     </style>
 
 
@@ -61,7 +65,7 @@
 
 
     <!-- Theme pour titre-->
-    <style name="title_Style" parent="@android:style/Theme.Holo.Light">
+    <style name="title_Style">
         <item name="android:background">@color/list_divider</item>
         <item name="android:textColor">@color/list_item_title</item>
     </style>

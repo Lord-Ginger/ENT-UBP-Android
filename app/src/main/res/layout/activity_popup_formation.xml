@@ -1,16 +1,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               tools:context=".PopupFormationActivity"
+              android:id="@+id/popup_main"
+              android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:id="@+id/popupLayout"
               style="@style/arbo_layout">
 
-    <TextView android:id="@+id/titleFormation"
+    <TextView android:id="@+id/popup_title_formation"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:text="Choix de la formation"
+              android:text="@string/popup_formation_title"
               style="@style/arbo_text_titre"/>
 
+    <TextView android:id="@+id/popup_path"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"/>
+
+    <Button android:id="@+id/popup_accept_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/popup_formation_button_content"/>
 
 </LinearLayout>
+
+
