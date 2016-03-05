@@ -14,51 +14,22 @@
     </style>
 
     <!-- Theme pour l arborescence de la pop des formations, UE et Cours -->
-    <style name="arbo_theme" parent="Theme.AppCompat.Dialog">
+    <style name="arbo_theme" parent="Theme.AppCompat.Light.Dialog">
     </style>
-
-    <style name="arbo_layout">
-        <item name="android:layout_gravity">center</item>
-        <item name="android:gravity">center_horizontal</item>
-        <item name="android:paddingTop">10dp</item>
-    </style>
-
-    <style name="arbo_text_titre">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/pop_up_title_text_size</item>
-    </style>
-
-    <style name="arbo_text_view">
-        <item name="android:gravity">center_vertical</item>
-    </style>
-
 
     <!-- Style pour agenda -->
-    <style name="agenda_text_day">
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_margin">20dp</item>
-        <item name="android:gravity">center_horizontal</item>
-    </style>
-
     <style name="agenda_text_content">
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginBottom">3dp</item>
-        <item name="android:layout_marginTop">3dp</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">@color/agenda_text_content</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:padding">10dp</item>
     </style>
-
-    <style name="agenda_layout_entry">
-        <item name="android:layout_marginBottom">10dp</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
-
 
     <!-- Theme pour profil-->
-    <style name="profile_Style" parent="@android:style/Theme.Holo.Light">
+    <style name="profile_Style">
         <item name="android:background">@color/counter_text_bg</item>
         <item name="android:textColor">@color/list_item_title</item>
-
         <item name="android:progressDrawable">@drawable/progress_bg</item>
     </style>
 

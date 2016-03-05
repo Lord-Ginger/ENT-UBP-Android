@@ -3,9 +3,7 @@
               android:id="@+id/agenda_content"
               android:layout_width="265dp"
               android:layout_height="wrap_content"
-              android:orientation="vertical"
-              android:background="@drawable/shape_agenda_cours"
-              style="@style/agenda_layout_entry">
+              android:orientation="vertical">
 
             <TextView android:id="@+id/agenda_hour"
                       android:layout_width="match_parent"

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="wrap_content"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:layout_marginBottom="20dp"
+              android:layout_marginTop="20dp"
+              android:layout_gravity="center">
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/agenda_recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:context="com.ent_ubp_android.app.fragment.AgendaFragment"
-            android:fillViewport="false"
-            android:id="@+id/agenda_scroll">
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
 
-
-    <LinearLayout android:id="@+id/agenda_main_layout"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:orientation="vertical">
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

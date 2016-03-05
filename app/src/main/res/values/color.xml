@@ -24,6 +24,7 @@
     <color name="title_text_color2">#fff</color>
 
     <!-- Color Popup -->
+    <color name="popup_validation">#57D53B</color>
 
 
 </resources>

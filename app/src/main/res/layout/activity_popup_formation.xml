@@ -1,27 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:tools="http://schemas.android.com/tools"
               tools:context=".PopupFormationActivity"
-              android:id="@+id/popup_main"
-              android:orientation="vertical"
+              android:id="@+id/popup_main_layout"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              style="@style/arbo_layout">
+              android:orientation="vertical">
 
-    <TextView android:id="@+id/popup_title_formation"
-              android:layout_width="wrap_content"
+    <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:padding="20dp"
+              android:gravity="center_horizontal"
               android:text="@string/popup_formation_title"
-              style="@style/arbo_text_titre"/>
+              android:textStyle="bold"/>
 
-    <TextView android:id="@+id/popup_path"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"/>
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="10dp"
+              android:text="@string/popup_formation_title"/>
 
-    <Button android:id="@+id/popup_accept_button"
+    <android.support.v7.widget.RecyclerView android:id="@+id/popup_rv"
+                                            android:layout_height="wrap_content"
+                                            android:layout_width="match_parent"
+                                            android:layout_weight="1"/>
+    <!--android:visibility="gone"-->
+    <AppCompatButton android:id="@+id/popup_accept_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/popup_validation"
             android:text="@string/popup_formation_button_content"/>
 
 </LinearLayout>
-
-

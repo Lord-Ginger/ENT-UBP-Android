@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/popup_text_view"
-          android:layout_width="match_parent"
-          android:layout_height="50dp"
-          android:background="@drawable/popup_text_view_bg"
-          android:text="Informatique"
-          style="@style/arbo_text_view"/>
