@@ -1,53 +1,41 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="UbpTheme" parent="@android:style/Theme.Holo.Light">
-        <item name="android:actionBarStyle">@style/UbpTheme.ActionBarStyle</item>
+    <!--Base Material Design -->
+    <style name="UbpTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <!-- default action bar background -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- used for the status bar -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- default value for colorControlActivated which is used to tint widgets -->
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- You can also set colorControlNormal, colorControlActivated
+            colorControlHighlight and colorSwitchThumbNormal. -->
+    </style>
+    <style name="UbpTheme" parent="UbpTheme.Base">
     </style>
 
-    <style name="UbpTheme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
-        <item name="android:titleTextStyle">@style/UbpTheme.ActionBarStyle.TitleTextStyle</item>
-        <item name="android:background">@color/action_bar_background</item>
-    </style>
-
-    <style name="UbpTheme.ActionBarStyle.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
-        <item name="android:textColor">@color/action_bar_title</item>
+    <!-- Theme pour l arborescence de la pop des formations, UE et Cours -->
+    <style name="arbo_theme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#FFCC00</item>
+        <item name="android:textColorPrimary">#FFFFFF</item>
+        <item name="android:background">#5fa3d0</item>
     </style>
 
     <!-- Style pour agenda -->
-    <style name="agenda_text_day">
-        <item name="android:textStyle">bold</item>
-        <item name="android:layout_margin">20dp</item>
-        <item name="android:gravity">center_horizontal</item>
-    </style>
-
     <style name="agenda_text_content">
         <item name="android:textStyle">bold</item>
-        <item name="android:layout_marginBottom">3dp</item>
-        <item name="android:layout_marginTop">3dp</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">@color/agenda_text_content</item>
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:padding">10dp</item>
     </style>
-
-    <style name="agenda_layout_entry">
-        <item name="android:layout_marginBottom">10dp</item>
-        <item name="android:layout_gravity">center</item>
-    </style>
-
 
     <!-- Theme pour profil-->
-    <style name="profile_Style" parent="@android:style/Theme.Holo.Light">
-        <item name="android:background">@color/counter_text_bg</item>
-        <item name="android:textColor">@color/list_item_title</item>
-
+    <style name="profile_Style">
+        <item name="android:background">#626262</item>
+        <item name="android:textColor">#fff</item>
         <item name="android:progressDrawable">@drawable/progress_bg</item>
-    </style>
-
-
-
-    <!-- Theme pour titre-->
-    <style name="title_Style" parent="@android:style/Theme.Holo.Light">
-        <item name="android:background">@color/list_divider</item>
-        <item name="android:textColor">@color/list_item_title</item>
     </style>
 
 </resources>

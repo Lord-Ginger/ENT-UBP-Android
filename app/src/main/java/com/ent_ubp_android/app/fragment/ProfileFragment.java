@@ -1,47 +1,63 @@
 package com.ent_ubp_android.app.fragment;
 
-import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.*;
-
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import com.ent_ubp_android.app.R;
+import com.ent_ubp_android.app.adapter.AgendaAdapter;
+import com.ent_ubp_android.app.model.Agenda;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
+import java.util.*;
 
 public class ProfileFragment extends Fragment {
 
-
-    /* Test Données */
-    private String nomCours[] = {"Base de données", "Complexite",
-            "Processus Stochastique et Meta-heuristique", "Base de données",
-            "Complexite", "Processus Stochastique et Meta-heuristique"};
-
-    private String heureCours[] = {"8:00 - 10:00", "10:15 - 12:15", "8:00 - 10:00", "10:15 - 12:15", "14:00 - 16:00", "10:15 - 12:15"};
-
-    private String salleCours[] = {"3002", "3002", "3002", "3002", "3002", "3002"};
-
-    private Calendar dateC[] = { new GregorianCalendar(2016, 1, 29),  new GregorianCalendar(2016, 1, 29)
-            , new GregorianCalendar(2016, 2, 1),  new GregorianCalendar(2016, 2, 1)
-            , new GregorianCalendar(2016, 2, 1), new GregorianCalendar(2016, 2,2)};
-
+    private List<Agenda> listAgenda;
+    private List<Agenda> printedListAgenda;
 
     private int nbHourDone = 150;
     private int nbHourPrev = 300;
     private int nbHourMust = nbHourPrev-nbHourDone;
 
-    private Calendar dateSys ;
     /* Fin test Données */
 
 
     public ProfileFragment(){}
+
+
+    private void createPrintedList(){
+        printedListAgenda = new ArrayList<Agenda>();
+        Calendar dateSys = new GregorianCalendar();
+
+        SimpleDateFormat formater = new SimpleDateFormat("dd MMMM yyyy", Locale.FRENCH);
+        String dateSysString = formater.format(dateSys.getTime());
+        String dateAgenda;
+
+        for(Agenda agenda : listAgenda){
+            dateAgenda = formater.format(agenda.getJours().getTime());
+            if(dateSysString.equals(dateAgenda)){
+                printedListAgenda.add(agenda);
+            }
+        }
+    }
+
+    private void remplirAgenda(){
+        listAgenda = new ArrayList<Agenda>();
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 6), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 6), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 8), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 9), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 10), "8:00 - 10:00", "Compilation", "3002"));
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,42 +65,15 @@ public class ProfileFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        //TODO:créer l'agenda
+        //Agenda
+        remplirAgenda();
+        createPrintedList();
 
-        dateSys = new GregorianCalendar();
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.profile_recyclerView_agenda);
+        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
+        recyclerView.setAdapter(new AgendaAdapter(printedListAgenda));
 
-        //Get the main layout
-        LinearLayout main_layout = (LinearLayout) rootView.findViewById(R.id.profil_scroll_layout);
-        LayoutInflater li = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        SimpleDateFormat formater = new SimpleDateFormat("dd MMMM yyyy", Locale.FRENCH);
-        TextView tempDate = (TextView) li.inflate(R.layout.agenda_date, main_layout, false);
-        tempDate.setText(formater.format(dateSys.getTime()));
-
-        main_layout.addView(tempDate);
-
-
-        for(int i = 0; i < nomCours.length; i++) {
-           if (formater.format(dateC[i].getTime()).compareTo((formater.format(dateSys.getTime()))) == 0) {
-
-                View tempContent = li.inflate(R.layout.agenda_content, main_layout, false);
-                TextView hour = (TextView) tempContent.findViewById(R.id.agenda_hour);
-                hour.setText(heureCours[i]);
-
-                TextView nameCours = (TextView) tempContent.findViewById(R.id.agenda_cours);
-                nameCours.setText(nomCours[i]);
-
-                TextView place = (TextView) tempContent.findViewById(R.id.agenda_place);
-                place.setText(salleCours[i]);
-
-                main_layout.addView(tempContent);
-
-           }
-        }
-
-
-        //TODO:Faire la progressBar (heure_prévu - heure_fais)
-
+        //Faire la progressBar (heure_prévu - heure_fais)
         ((TextView)rootView.findViewById(R.id.textHourDone)).setText(Integer.toString(nbHourDone));
         ((TextView)rootView.findViewById(R.id.textHourPrev)).setText(Integer.toString(nbHourPrev));
 
@@ -98,11 +87,6 @@ public class ProfileFragment extends Fragment {
             ((ProgressBar) rootView.findViewById(R.id.progressBar)).setProgress(100);
         }
 
-
-
-
-
         return rootView;
     }
-
 }
