@@ -6,12 +6,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.ent_ubp_android.app.Interface.IRecyclerViewClickListener;
 import com.ent_ubp_android.app.R;
 import com.ent_ubp_android.app.model.Formation;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 

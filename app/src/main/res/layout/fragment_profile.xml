@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" android:weightSum="1">
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:weightSum="1">
 
 
 
@@ -63,7 +64,7 @@
                     android:textAppearance="?android:attr/textAppearanceButton"
                     android:id="@+id/textV2"
                     android:text="Heures faites :"
-                    />
+            />
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -119,24 +120,8 @@
 
     </LinearLayout>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context="com.ent_ubp_android.app.fragment.ProfileFragment"
-                android:fillViewport="false"
-                android:id="@+id/profil_scroll">
-
-        <LinearLayout android:id="@+id/profil_scroll_layout"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:orientation="vertical"
-        >
-
-
-        </LinearLayout>
-
-    </ScrollView>
+    <include android:id="@+id/profile_recyclerView_agenda"
+             layout="@layout/fragment_agenda"/>
 
 
 </LinearLayout>

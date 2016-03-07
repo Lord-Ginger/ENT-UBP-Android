@@ -1,28 +1,20 @@
 package com.ent_ubp_android.app;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.CardView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.text.Layout;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewParent;
-import android.widget.*;
 import android.widget.LinearLayout.LayoutParams;
-import android.widget.AdapterView.OnItemClickListener;
 import com.ent_ubp_android.app.Interface.IRecyclerViewClickListener;
 import com.ent_ubp_android.app.adapter.FormationAdapter;
 import com.ent_ubp_android.app.model.Formation;
-import org.w3c.dom.Text;
 
-import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PopupFormationActivity extends Activity implements IRecyclerViewClickListener{
+public class PopupFormationActivity extends AppCompatActivity implements IRecyclerViewClickListener{
 
     private List<Formation> formation;
     private List<Formation> formation2;

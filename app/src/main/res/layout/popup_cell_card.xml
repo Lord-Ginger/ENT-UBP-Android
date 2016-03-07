@@ -5,11 +5,10 @@
         android:id="@+id/popup_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-        app:cardBackgroundColor="@color/agenda_background"
         app:cardElevation="6dp"
         app:cardCornerRadius="2dp"
         app:cardPreventCornerOverlap="false">
+    <!--app:cardBackgroundColor="@color/agenda_background"-->
 
     <TextView android:id="@+id/popup_nom_formation"
               android:layout_width="match_parent"
