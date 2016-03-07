@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ENT UBP</string>
+
+    <!--Menu -->
     <string name="action_settings">Settings</string>
+
+    <!--Navigation View -->
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
 
     <!--Popup Formation-->
     <string name="popup_formation_title">Choix de la formation</string>
     <string name="popup_formation_button_content">Valider</string>
+
+    <!--Fragment Profil -->
+    <string name="profil_heure_prevu">Heures prévues :</string>
+    <string name="profil_heure_faite">Heures faites :</string>
+    <string name="profil_heure_faire">Heures à faire :</string>
+    <string name="profil_agenda_title">Cours de la journée</string>
 
     <!--???-->
     <string name="hello_blank_fragment">Hello blank fragment</string>

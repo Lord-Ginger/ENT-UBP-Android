@@ -30,6 +30,35 @@ public class ProfileFragment extends Fragment {
 
     public ProfileFragment(){}
 
+
+    private void createPrintedList(){
+        printedListAgenda = new ArrayList<Agenda>();
+        Calendar dateSys = new GregorianCalendar();
+
+        SimpleDateFormat formater = new SimpleDateFormat("dd MMMM yyyy", Locale.FRENCH);
+        String dateSysString = formater.format(dateSys.getTime());
+        String dateAgenda;
+
+        for(Agenda agenda : listAgenda){
+            dateAgenda = formater.format(agenda.getJours().getTime());
+            if(dateSysString.equals(dateAgenda)){
+                printedListAgenda.add(agenda);
+            }
+        }
+    }
+
+    private void remplirAgenda(){
+        listAgenda = new ArrayList<Agenda>();
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 6), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 6), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 8), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 9), "8:00 - 10:00", "Compilation", "3002"));
+        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 10), "8:00 - 10:00", "Compilation", "3002"));
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -60,33 +89,4 @@ public class ProfileFragment extends Fragment {
 
         return rootView;
     }
-
-    private void createPrintedList(){
-        printedListAgenda = new ArrayList<Agenda>();
-        Calendar dateSys = new GregorianCalendar();
-
-        SimpleDateFormat formater = new SimpleDateFormat("dd MMMM yyyy", Locale.FRENCH);
-        String dateSysString = formater.format(dateSys.getTime());
-        String dateAgenda;
-
-        for(Agenda agenda : listAgenda){
-            dateAgenda = formater.format(agenda.getJours().getTime());
-            if(dateSysString.equals(dateAgenda)){
-                printedListAgenda.add(agenda);
-            }
-        }
-    }
-
-    private void remplirAgenda(){
-        listAgenda = new ArrayList<Agenda>();
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 6), "8:00 - 10:00", "Compilation", "3002"));
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 6), "8:00 - 10:00", "Compilation", "3002"));
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 7), "8:00 - 10:00", "Compilation", "3002"));
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 8), "8:00 - 10:00", "Compilation", "3002"));
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 9), "8:00 - 10:00", "Compilation", "3002"));
-        listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 10), "8:00 - 10:00", "Compilation", "3002"));
-    }
-
 }

@@ -1,6 +1,5 @@
 package com.ent_ubp_android.app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -23,8 +22,6 @@ import com.ent_ubp_android.app.fragment.ProfileFragment;
  */
 public class MainActivity extends AppCompatActivity {
 
-    //Defining Variables
-    private Toolbar toolbar;
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
 
@@ -34,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Initializing Toolbar and setting it as the actionbar
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -86,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Initializing Drawer Layout and ActionBarToggle
         drawerLayout = (DrawerLayout) findViewById(R.id.main_drawerLayout);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.drawer_open, R.string.drawer_close){
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.drawer_open, R.string.drawer_close){
 
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -104,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         //calling sync state is necessay or else icon wont show up
         actionBarDrawerToggle.syncState();
-        
+
         navigationView.getMenu().performIdentifierAction(R.id.menuDrawer_profile, 0);
     }
 
