@@ -49,12 +49,14 @@ public class MainActivity
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-                    /* ****************************************************** */
-                    /* Initialize and set the options for the nagivation view */
-                    /* ****************************************************** */
+        //Initialise and set the navigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
         setNavigationView();
-        navigationView.getMenu().performIdentifierAction(navigationView.getMenu().getItem(0).getItemId(), 0);
+
+        //This is the creation of the app
+        //Preserve fragment's state when screen rotate
+        if(savedInstanceState == null)
+            navigationView.getMenu().performIdentifierAction(navigationView.getMenu().getItem(0).getItemId(), 0);
 
 
     }

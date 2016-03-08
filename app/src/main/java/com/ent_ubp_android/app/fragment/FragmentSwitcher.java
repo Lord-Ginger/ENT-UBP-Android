@@ -27,20 +27,12 @@ public class FragmentSwitcher {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         String fragmentTag = fragment.getClass().getName();
+        boolean isInTheStack = fragmentManager.popBackStackImmediate(fragmentTag, 0);
 
-        if(!fragmentManager.popBackStackImmediate(fragmentTag, 0)){
+        if(!isInTheStack){
             fragmentTransaction.replace(R.id.frame_container, fragment, fragmentTag);
         }
         fragmentTransaction.addToBackStack(fragmentTag);
         fragmentTransaction.commit();
-
-        /*Fragment fragmentBis = fragmentManager.findFragmentByTag(fragmentTag);
-        if(fragmentBis == null){
-            fragmentTransaction.replace(R.id.frame_container, fragment, fragmentTag).addToBackStack(fragmentTag);
-        }
-        else{
-
-                fragmentTransaction.replace(R.id.frame_container, fragment, fragmentTag);
-*/
     }
 }
