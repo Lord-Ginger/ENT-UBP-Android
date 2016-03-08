@@ -3,7 +3,7 @@ package com.ent_ubp_android.app;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,95 +14,51 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.ent_ubp_android.app.fragment.AgendaFragment;
+import com.ent_ubp_android.app.fragment.FormationMainFragment;
+import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.fragment.ProfileFragment;
 
 /**
  * Activite permettant de gerer le Slider Menu.
  * Chaque entrer du menu référencera un fragment
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity
+        extends AppCompatActivity
+        implements NavigationView.OnNavigationItemSelectedListener,
+                   FragmentManager.OnBackStackChangedListener {
 
+    //Toolbar
+    Toolbar toolbar;
+
+    //Variables for Navigation View
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
+
+    //Stock FragmentTag
+    FragmentSwitcher fragmentSwitcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
+        fragmentSwitcher = new FragmentSwitcher(this);
+
         // Initializing Toolbar and setting it as the actionbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Initialise and set the navigationView
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        setNavigationView();
 
-        //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+        //This is the creation of the app
+        //Preserve fragment's state when screen rotate
+        if(savedInstanceState == null)
+            navigationView.getMenu().performIdentifierAction(navigationView.getMenu().getItem(0).getItemId(), 0);
 
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
 
-                //Checking if the item is in checked state or not, if not make it in checked state
-                if(menuItem.isChecked())
-                    menuItem.setChecked(false);
-                else
-                    menuItem.setChecked(true);
-
-                //Closing drawer on item click
-                drawerLayout.closeDrawers();
-
-                Fragment fragment = null;
-                //Check to see which item was being clicked and perform appropriate action
-                switch (menuItem.getItemId()){
-                    case R.id.menuDrawer_profile:
-                        Toast.makeText(getApplicationContext(),"Profil",Toast.LENGTH_SHORT).show();
-                        fragment = new ProfileFragment();
-                        break;
-
-                    case R.id.menuDrawer_agenda:
-                        Toast.makeText(getApplicationContext(),"Agenda",Toast.LENGTH_SHORT).show();
-                        fragment = new AgendaFragment();
-                        break;
-
-                    default:
-                        Toast.makeText(getApplicationContext(),"Erreur",Toast.LENGTH_SHORT).show();
-                        break;
-
-                }
-
-                if(fragment != null) {
-                    FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.frame_container, fragment).commit();
-                } else {
-                    // error in creating fragment
-                    Log.e("MainActivity", "Error in creating fragment");
-                }
-                return true;
-            }
-        });
-
-        // Initializing Drawer Layout and ActionBarToggle
-        drawerLayout = (DrawerLayout) findViewById(R.id.main_drawerLayout);
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.drawer_open, R.string.drawer_close){
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                super.onDrawerClosed(drawerView);
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                super.onDrawerOpened(drawerView);
-            }
-        };
-
-        //Setting the actionbarToggle to drawer layout
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-
-        //calling sync state is necessay or else icon wont show up
-        actionBarDrawerToggle.syncState();
-
-        navigationView.getMenu().performIdentifierAction(R.id.menuDrawer_profile, 0);
     }
 
     @Override
@@ -126,11 +82,153 @@ public class MainActivity extends AppCompatActivity {
 
         if (id == R.id.action_user){
             navigationView.setCheckedItem(R.id.menuDrawer_profile);
-            FragmentTransaction fragmentManager = getSupportFragmentManager().beginTransaction();
-            fragmentManager.replace(R.id.frame_container, new ProfileFragment()).commit();
+            fragmentSwitcher.startAnotherFragment(new ProfileFragment());
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop (){
+        super.onStop();
+    }
+
+    //Stock Data when activity is reloaded
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    //Stock data when acitivity is stopped or when the context has changed
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceSate){
+        super.onSaveInstanceState(savedInstanceSate);
+    }
+
+    @Override
+    public void onBackPressed() {
+        FragmentManager fm = FragmentSwitcher.getSupportFragmentManager();
+
+        if(drawerLayout.isDrawerOpen(navigationView)) {
+            drawerLayout.closeDrawers();
+
+        }else if (fm.getBackStackEntryCount() == 1) {
+            fm.popBackStack();
+
+        }else
+            super.onBackPressed();
+    }
+
+    //Set the action of the navigation Menu
+    @Override
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
+        //Checking if the item is in checked state or not, if not make it in checked state
+        if(menuItem.isChecked())
+            menuItem.setChecked(false);
+        else
+            menuItem.setChecked(true);
+
+        //Closing drawer on item click
+        drawerLayout.closeDrawers();
+
+        Fragment fragment = null;
+        //Check to see which item was being clicked and perform appropriate action
+        switch (menuItem.getItemId()){
+            case R.id.menuDrawer_profile:
+                Toast.makeText(getApplicationContext(),"Profil",Toast.LENGTH_SHORT).show();
+                fragment = new ProfileFragment();
+                getSupportActionBar().setTitle("Profil");
+                break;
+
+            case R.id.menuDrawer_agenda:
+                Toast.makeText(getApplicationContext(),"Agenda",Toast.LENGTH_SHORT).show();
+                fragment = new AgendaFragment();
+                getSupportActionBar().setTitle("Agenda");
+                break;
+
+            case R.id.menuDrawer_formation:
+                Toast.makeText(getApplicationContext(), "Formation", Toast .LENGTH_LONG).show();
+                fragment = new FormationMainFragment();
+                getSupportActionBar().setTitle("Formations");
+                break;
+
+            default:
+                Toast.makeText(getApplicationContext(),"Erreur",Toast.LENGTH_SHORT).show();
+                break;
+
+        }
+
+        if(fragment != null) {
+            fragmentSwitcher.startAnotherFragment(fragment);
+        } else {
+            // error in creating fragment
+            Log.e("MainActivity", "Error in creating fragment");
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public void onBackStackChanged() {
+        Fragment current = FragmentSwitcher.getSupportFragmentManager().findFragmentById(R.id.frame_container);
+        if(current != null)
+            updateHighLightNavigationDrawer(current);
+
+    }
+
+    public void updateHighLightNavigationDrawer(Fragment current){
+        String tag = current.getClass().getName();
+
+        if(tag.equals(ProfileFragment.class.getName())){
+            navigationView.getMenu().getItem(0).setChecked(true);
+            getSupportActionBar().setTitle("Profil");
+
+        }else if(tag.equals(AgendaFragment.class.getName())){
+            navigationView.getMenu().getItem(1).setChecked(true);
+            getSupportActionBar().setTitle("Agenda");
+
+        }else if(tag.equals(FormationMainFragment.class.getName())){
+            navigationView.getMenu().getItem(2).setChecked(true);
+            getSupportActionBar().setTitle("Formations");
+        }
+    }
+
+    private void setNavigationView(){
+        //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
+        navigationView.setNavigationItemSelectedListener(this);
+
+        // Initializing Drawer Layout and ActionBarToggle
+        drawerLayout = (DrawerLayout) findViewById(R.id.main_drawerLayout);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,drawerLayout, toolbar,R.string.drawer_open, R.string.drawer_close){
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+            }
+        };
+
+        //Setting the actionbarToggle to drawer layout
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+
+        //calling sync state is necessay or else icon wont show up
+        actionBarDrawerToggle.syncState();
+    }
+
+
 }

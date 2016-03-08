@@ -5,6 +5,11 @@
     <!--Menu -->
     <string name="action_settings">Settings</string>
 
+    <!-- Navigation view -->
+    <string name="navigation_menu_profil">Profil</string>
+    <string name="navigation_menu_agenda">Agenda</string>
+    <string name="navigation_menu_formation">Formation</string>
+
     <!--Navigation View -->
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
