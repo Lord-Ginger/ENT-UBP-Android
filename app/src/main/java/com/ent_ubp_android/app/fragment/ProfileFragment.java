@@ -25,11 +25,81 @@ public class ProfileFragment extends Fragment {
     private int nbHourPrev = 300;
     private int nbHourMust = nbHourPrev-nbHourDone;
 
+    RecyclerView recyclerView;
+    TextView textHourDone;
+    TextView textHourPrev;
+    TextView textHourSous;
+    ProgressBar progressBar;
+
     /* Fin test Données */
 
 
     public ProfileFragment(){}
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //Agenda
+        remplirAgenda();
+        createPrintedList();
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.profile_recyclerView_agenda);
+        textHourDone = (TextView) rootView.findViewById(R.id.textHourDone);
+        textHourPrev = (TextView) rootView.findViewById(R.id.textHourPrev);
+        textHourSous = (TextView) rootView.findViewById(R.id.textHourSous);
+        progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+
+        return rootView;
+    }
+
+    //Do Process
+    @Override
+    public void onActivityCreated (Bundle savedInstanceState){
+        super.onActivityCreated(savedInstanceState);
+
+        textHourDone.setText(Integer.toString(nbHourDone));
+        textHourPrev.setText(Integer.toString(nbHourPrev));
+
+        if(nbHourDone < nbHourPrev){
+            textHourSous.setText(Integer.toString(nbHourMust));
+            progressBar.setMax(nbHourPrev);
+            progressBar.setProgress(nbHourDone);
+        } else {
+            textHourDone.setText(Integer.toString(0));
+            progressBar.setMax(0);
+            progressBar.setProgress(100);
+        }
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(FragmentSwitcher.getActivity()));
+        recyclerView.setAdapter(new AgendaAdapter(printedListAgenda));
+    }
+
+    @Override
+    public void onResume (){
+        super.onResume();
+    }
+
+    @Override
+    public void onPause (){
+        super.onPause();
+    }
+
+    @Override
+    public void onStop (){
+        super.onStop();
+    }
+
+    @Override
+    public void onViewStateRestored (Bundle savedInstanceState){
+        super.onViewStateRestored(savedInstanceState);
+    }
 
     private void createPrintedList(){
         printedListAgenda = new ArrayList<Agenda>();
@@ -59,34 +129,4 @@ public class ProfileFragment extends Fragment {
         listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 10), "8:00 - 10:00", "Compilation", "3002"));
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-
-        View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
-
-        //Agenda
-        remplirAgenda();
-        createPrintedList();
-
-        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.profile_recyclerView_agenda);
-        recyclerView.setLayoutManager(new LinearLayoutManager(rootView.getContext()));
-        recyclerView.setAdapter(new AgendaAdapter(printedListAgenda));
-
-        //Faire la progressBar (heure_prévu - heure_fais)
-        ((TextView)rootView.findViewById(R.id.textHourDone)).setText(Integer.toString(nbHourDone));
-        ((TextView)rootView.findViewById(R.id.textHourPrev)).setText(Integer.toString(nbHourPrev));
-
-        if(nbHourDone < nbHourPrev){
-            ((TextView)rootView.findViewById(R.id.textHourSous)).setText(Integer.toString(nbHourMust));
-            ((ProgressBar) rootView.findViewById(R.id.progressBar)).setMax(nbHourPrev);
-            ((ProgressBar) rootView.findViewById(R.id.progressBar)).setProgress(nbHourDone);
-        } else {
-            ((TextView)rootView.findViewById(R.id.textHourDone)).setText(Integer.toString(0));
-            ((ProgressBar) rootView.findViewById(R.id.progressBar)).setMax(0);
-            ((ProgressBar) rootView.findViewById(R.id.progressBar)).setProgress(100);
-        }
-
-        return rootView;
-    }
 }

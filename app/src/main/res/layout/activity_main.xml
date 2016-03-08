@@ -6,23 +6,30 @@
         android:id="@+id/main_drawerLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
         tools:context=".MainActivity">
 
-    <LinearLayout android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+    <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <include android:id="@+id/toolbar_included"
-                layout="@layout/toolbar"/>
+        <android.support.design.widget.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <include android:id="@+id/toolbar_included"
+                     layout="@layout/toolbar"/>
+
+        </android.support.design.widget.AppBarLayout>
 
         <!-- Framelayout to display Fragments-->
         <FrameLayout
                 android:id="@+id/frame_container"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-    </LinearLayout>
-
+    </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.NavigationView
             android:id="@+id/navigation_view"

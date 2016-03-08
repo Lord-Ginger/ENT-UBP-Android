@@ -5,11 +5,16 @@
         <item android:id="@+id/menuDrawer_profile"
               android:checked="false"
               android:icon="@mipmap/ic_profile"
-              android:title="Profile" />
+              android:title="@string/navigation_menu_profil" />
 
         <item android:id="@+id/menuDrawer_agenda"
               android:checked="false"
               android:icon="@mipmap/ic_home"
-              android:title="Agenda" />
+              android:title="@string/navigation_menu_agenda" />
+
+        <item android:id="@+id/menuDrawer_formation"
+              android:checked="false"
+              android:icon="@mipmap/ic_home"
+              android:title="@string/navigation_menu_formation"/>
     </group>
 </menu>
