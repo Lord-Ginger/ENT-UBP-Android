@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.ent_ubp_android.app.fragment.AgendaFragment;
-import com.ent_ubp_android.app.fragment.FormationMainFragment;
+import com.ent_ubp_android.app.fragment.formation.FormationMainFragment;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.fragment.ProfileFragment;
 

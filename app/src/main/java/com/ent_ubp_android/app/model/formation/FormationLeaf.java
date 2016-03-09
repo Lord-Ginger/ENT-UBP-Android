@@ -1,6 +1,7 @@
 package com.ent_ubp_android.app.model.formation;
 
-import java.util.Objects;
+import com.google.common.base.Objects;
+import org.apache.commons.lang3.StringUtils;
 
 public class FormationLeaf implements FormationComponent {
 
@@ -8,7 +9,7 @@ public class FormationLeaf implements FormationComponent {
     private Long id;
 
     public FormationLeaf(final String name) {
-        if (name == null || name.equals("")) {
+        if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("Cannot build a " + getClass().getName() + " without a name");
         }
         this.name = name;
@@ -37,7 +38,7 @@ public class FormationLeaf implements FormationComponent {
         if (o == null || getClass() != o.getClass()) return false;
         FormationLeaf other = (FormationLeaf) o;
         if (this.getId() == null || other.getId() == null) return false;
-        return Objects.equals(this.getId(), other.getId());
+        return Objects.equal(this.getId(), other.getId());
     }
 
     @Override

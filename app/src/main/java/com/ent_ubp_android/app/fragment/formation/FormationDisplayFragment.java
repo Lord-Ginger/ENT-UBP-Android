@@ -1,4 +1,4 @@
-package com.ent_ubp_android.app.fragment;
+package com.ent_ubp_android.app.fragment.formation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

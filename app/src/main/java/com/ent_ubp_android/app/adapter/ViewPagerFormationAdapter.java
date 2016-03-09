@@ -3,11 +3,11 @@ package com.ent_ubp_android.app.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import com.ent_ubp_android.app.fragment.FormationDisplayFragment;
+import com.ent_ubp_android.app.fragment.formation.FormationDisplayFragment;
 
-public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+public class ViewPagerFormationAdapter extends FragmentStatePagerAdapter {
 
-    public ViewPagerAdapter(FragmentManager fragmentManager) {
+    public ViewPagerFormationAdapter(FragmentManager fragmentManager) {
         super(fragmentManager);
     }
 

@@ -1,9 +1,12 @@
 package com.ent_ubp_android.app.model.formation;
 
+import com.ent_ubp_android.app.exception.ModelConstraintViolationException;
+import com.google.common.base.Objects;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 
 public class FormationComposite implements FormationComponent {
@@ -14,7 +17,7 @@ public class FormationComposite implements FormationComponent {
     private Boolean isLeafContainer;
 
     public FormationComposite(final String name) {
-        if (name == null || name.equals("")) {
+        if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("Cannot build a " + getClass().getName() + " without a name");
         }
         this.isLeafContainer = Boolean.TRUE;
@@ -60,7 +63,7 @@ public class FormationComposite implements FormationComponent {
             this.isLeafContainer = Boolean.FALSE;
         }
         if (this.isLeafContainer) {
-            throw new IllegalArgumentException();
+            throw new ModelConstraintViolationException("A " + getClass().getName() + " can contains only one of types : " + FormationComposite.class.getName() + " and " + FormationLeaf.class.getName());
         }
 
         this.formations.add(formation);
@@ -71,7 +74,7 @@ public class FormationComposite implements FormationComponent {
             this.isLeafContainer = Boolean.TRUE;
         }
         if (!this.isLeafContainer) {
-            throw new IllegalArgumentException();
+            throw new ModelConstraintViolationException("A " + getClass().getName() + " can contains only one of types : " + FormationComposite.class.getName() + " and " + FormationLeaf.class.getName());
         }
 
         this.formations.add(formation);
@@ -83,7 +86,7 @@ public class FormationComposite implements FormationComponent {
         if (o == null || getClass() != o.getClass()) return false;
         FormationComposite other = (FormationComposite) o;
         if (this.getId() == null || other.getId() == null) return false;
-        return Objects.equals(this.getId(), other.getId());
+        return Objects.equal(this.getId(), other.getId());
     }
 
     @Override
