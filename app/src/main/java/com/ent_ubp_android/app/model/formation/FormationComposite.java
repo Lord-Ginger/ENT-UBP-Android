@@ -1,6 +1,7 @@
 package com.ent_ubp_android.app.model.formation;
 
 import com.ent_ubp_android.app.exception.ModelConstraintViolationException;
+import com.fasterxml.jackson.annotation.*;
 import com.google.common.base.Objects;
 import org.apache.commons.lang3.StringUtils;
 
@@ -8,21 +9,23 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-
+@JsonPropertyOrder({"id"})
 public class FormationComposite implements FormationComponent {
 
     private final String name;
     private final List<FormationComponent> formations;
     private Long id;
+
     private Boolean isLeafContainer;
 
-    public FormationComposite(final String name) {
+    @JsonCreator
+    public FormationComposite(@JsonProperty("name") final String name) {
         if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("Cannot build a " + getClass().getName() + " without a name");
         }
         this.isLeafContainer = Boolean.TRUE;
         this.name = name;
-        this.formations = new ArrayList<FormationComponent>();
+        this.formations = new ArrayList<>();
     }
 
     public Long getId() {
@@ -42,6 +45,7 @@ public class FormationComposite implements FormationComponent {
     }
 
     @Override
+    @JsonIgnore
     public final Boolean isLeaf() {
         return Boolean.FALSE;
     }

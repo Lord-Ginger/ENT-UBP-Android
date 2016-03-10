@@ -1,14 +1,20 @@
 package com.ent_ubp_android.app.model.formation;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.common.base.Objects;
 import org.apache.commons.lang3.StringUtils;
 
+@JsonPropertyOrder({"id"})
 public class FormationLeaf implements FormationComponent {
 
     private final String name;
     private Long id;
 
-    public FormationLeaf(final String name) {
+    @JsonCreator
+    public FormationLeaf(@JsonProperty("name") final String name) {
         if (StringUtils.isBlank(name)) {
             throw new IllegalArgumentException("Cannot build a " + getClass().getName() + " without a name");
         }
@@ -28,6 +34,7 @@ public class FormationLeaf implements FormationComponent {
     }
 
     @Override
+    @JsonIgnore
     public final Boolean isLeaf() {
         return Boolean.TRUE;
     }

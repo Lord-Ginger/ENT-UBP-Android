@@ -14,9 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.ent_ubp_android.app.fragment.AgendaFragment;
-import com.ent_ubp_android.app.fragment.formation.FormationMainFragment;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.fragment.ProfileFragment;
+import com.ent_ubp_android.app.fragment.formation.FormationMainFragment;
 
 /**
  * Activite permettant de gerer le Slider Menu.
@@ -80,6 +80,7 @@ public class MainActivity
             return true;
         }
 
+        //Display the profil fragment
         if (id == R.id.action_user){
             navigationView.setCheckedItem(R.id.menuDrawer_profile);
             fragmentSwitcher.startAnotherFragment(new ProfileFragment());
@@ -87,6 +88,11 @@ public class MainActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
     }
 
     @Override
@@ -118,13 +124,8 @@ public class MainActivity
 
     @Override
     public void onBackPressed() {
-        FragmentManager fm = FragmentSwitcher.getSupportFragmentManager();
-
         if(drawerLayout.isDrawerOpen(navigationView)) {
             drawerLayout.closeDrawers();
-
-        }else if (fm.getBackStackEntryCount() == 1) {
-            fm.popBackStack();
 
         }else
             super.onBackPressed();
@@ -181,9 +182,16 @@ public class MainActivity
 
     @Override
     public void onBackStackChanged() {
-        Fragment current = FragmentSwitcher.getSupportFragmentManager().findFragmentById(R.id.frame_container);
+        FragmentManager fm = FragmentSwitcher.getSupportFragmentManager();
+        Fragment current = fm.findFragmentById(R.id.frame_container);
+
+        if(fm.getBackStackEntryCount() == 0)
+            finish();
+
         if(current != null)
             updateHighLightNavigationDrawer(current);
+
+
 
     }
 
@@ -229,6 +237,4 @@ public class MainActivity
         //calling sync state is necessay or else icon wont show up
         actionBarDrawerToggle.syncState();
     }
-
-
 }

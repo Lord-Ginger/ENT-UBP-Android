@@ -12,7 +12,8 @@ import com.ent_ubp_android.app.R;
 import com.ent_ubp_android.app.adapter.ViewPagerFormationAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 
-
+//TODO: when we reload from the nav an press back Blank fragment
+//TODO: Click on tabLayout isn't working
 public class FormationMainFragment extends Fragment {
 
     //Variables for TabLayout and ViewPager
@@ -47,15 +48,13 @@ public class FormationMainFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Afficher"), 0);
         tabLayout.addTab(tabLayout.newTab().setText("Ajouter"), 1);
 
-        ViewPagerFormationAdapter viewPagerAdapter = new ViewPagerFormationAdapter(FragmentSwitcher.getSupportFragmentManager());
+        ViewPagerFormationAdapter viewPagerAdapter = new ViewPagerFormationAdapter(FragmentSwitcher.getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setTabTextColors(ContextCompat.getColorStateList(FragmentSwitcher.getActivity(), R.drawable.tab_layout_selector));
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(FragmentSwitcher.getActivity(), R.color.indicator));
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-
-
     }
 
     @Override
@@ -72,6 +71,7 @@ public class FormationMainFragment extends Fragment {
     public void onStop (){
         super.onStop();
     }
+
 
     @Override
     public void onViewStateRestored (Bundle savedInstanceState){

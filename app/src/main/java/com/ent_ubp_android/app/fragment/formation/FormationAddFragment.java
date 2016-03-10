@@ -1,11 +1,12 @@
 package com.ent_ubp_android.app.fragment.formation;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.R;
+
 
 public class FormationAddFragment extends Fragment {
 
