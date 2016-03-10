@@ -14,9 +14,9 @@
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
 
-    <!--Popup Formation-->
-    <string name="popup_formation_title">Choix de la formation</string>
-    <string name="popup_formation_button_content">Valider</string>
+    <!--Formation Display-->
+    <string name="formation_title">Choix de la formation</string>
+    <string name="formation_button_content">Valider</string>
 
     <!--Fragment Profil -->
     <string name="profil_heure_prevu">Heures prévues :</string>

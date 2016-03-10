@@ -1,4 +1,4 @@
-package com.ent_ubp_android.app.fragment;
+package com.ent_ubp_android.app.fragment.formation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.R;
 
-public class FormationDisplayFragment extends Fragment {
 
-    public FormationDisplayFragment() {}
+public class FormationAddFragment extends Fragment {
+
+    public FormationAddFragment() {}
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -19,32 +20,32 @@ public class FormationDisplayFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_formation_display, container, false);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_formation_add, container, false);
     }
 
-    //Do Process
     @Override
-    public void onActivityCreated (Bundle savedInstanceState){
+    public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
-    public void onResume (){
+    public void onViewStateRestored(Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
         super.onResume();
     }
 
     @Override
-    public void onPause (){
+    public void onPause() {
         super.onPause();
     }
 
     @Override
-    public void onStop (){
+    public void onStop() {
         super.onStop();
-    }
-
-    @Override
-    public void onViewStateRestored (Bundle savedInstanceState){
-        super.onViewStateRestored(savedInstanceState);
     }
 }

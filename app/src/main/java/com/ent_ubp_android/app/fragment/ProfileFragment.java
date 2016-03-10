@@ -16,6 +16,7 @@ import com.ent_ubp_android.app.model.Agenda;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+//TODO: DO A BETTER DESIGN TO THE HEADER
 public class ProfileFragment extends Fragment {
 
     private List<Agenda> listAgenda;

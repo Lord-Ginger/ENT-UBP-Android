@@ -12,7 +12,14 @@
         <!-- You can also set colorControlNormal, colorControlActivated
             colorControlHighlight and colorSwitchThumbNormal. -->
     </style>
+
     <style name="UbpTheme" parent="UbpTheme.Base">
+    </style>
+
+    <style name="AppCompatAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/text</item>
+        <item name="android:background">@color/colorPrimary</item>
     </style>
 
     <!-- Theme pour l arborescence de la pop des formations, UE et Cours -->
