@@ -9,8 +9,7 @@
     <string name="navigation_menu_profil">Profil</string>
     <string name="navigation_menu_agenda">Agenda</string>
     <string name="navigation_menu_formation">Formation</string>
-
-    <!--Navigation View -->
+    <string name="navigation_menu_classroom">Salle de cours</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
 
@@ -23,6 +22,9 @@
     <string name="profil_heure_faite">Heures faites :</string>
     <string name="profil_heure_faire">Heures à faire :</string>
     <string name="profil_agenda_title">Cours de la journée</string>
+
+    <!--Classroom Display -->
+    <string name="classroom_display_title">Choix de la salle de cours</string>
 
     <!--???-->
     <string name="hello_blank_fragment">Hello blank fragment</string>

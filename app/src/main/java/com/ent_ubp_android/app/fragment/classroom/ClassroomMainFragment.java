@@ -1,6 +1,7 @@
-package com.ent_ubp_android.app.fragment.formation;
+package com.ent_ubp_android.app.fragment.classroom;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
@@ -9,19 +10,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.ViewPagerFormationAdapter;
+import com.ent_ubp_android.app.adapter.ViewPagerClassroomAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 
-//TODO: when we reload from the nav an press back Blank fragment
-//TODO: Click on tabLayout isn't working
-public class FormationMainFragment extends Fragment {
+public class ClassroomMainFragment extends Fragment {
 
-    //Variables for TabLayout and ViewPager
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private ViewPagerFormationAdapter viewPagerAdapter;
+    TabLayout tabLayout;
+    ViewPager viewPager;
 
-    public FormationMainFragment() {}
+    public ClassroomMainFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,49 +27,49 @@ public class FormationMainFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_formation_main, container, false);
-        tabLayout = (TabLayout) view.findViewById(R.id.tabsLayout);
-        viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_classroom_main, container, false);
 
-        return view;
+        tabLayout = (TabLayout) v.findViewById(R.id.class_tabsLayout);
+        viewPager = (ViewPager) v.findViewById(R.id.class_viewpager);
+
+        return v;
     }
 
-    //Do Process
     @Override
-    public void onActivityCreated (Bundle savedInstanceState){
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //Set the text to display and the position in the tab
         tabLayout.addTab(tabLayout.newTab().setText("Afficher"), 0);
         tabLayout.addTab(tabLayout.newTab().setText("Ajouter"), 1);
 
-        viewPagerAdapter = new ViewPagerFormationAdapter(FragmentSwitcher.getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(viewPagerAdapter);
+        ViewPagerClassroomAdapter adapter = new ViewPagerClassroomAdapter(FragmentSwitcher.getSupportFragmentManager(), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+
         tabLayout.setTabTextColors(ContextCompat.getColorStateList(FragmentSwitcher.getActivity(), R.drawable.tab_layout_selector));
         tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(FragmentSwitcher.getActivity(), R.color.indicator));
-
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 
+
     @Override
-    public void onResume (){
+    public void onResume() {
         super.onResume();
     }
 
     @Override
-    public void onPause (){
+    public void onPause() {
         super.onPause();
     }
 
     @Override
-    public void onStop (){
+    public void onStop() {
         super.onStop();
     }
 
-
     @Override
-    public void onViewStateRestored (Bundle savedInstanceState){
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
     }
 }

@@ -16,5 +16,10 @@
               android:checked="false"
               android:icon="@mipmap/ic_home"
               android:title="@string/navigation_menu_formation"/>
+
+        <item android:id="@+id/menuDrawer_classroom"
+              android:checked="false"
+              android:icon="@mipmap/ic_home"
+              android:title="@string/navigation_menu_classroom"/>
     </group>
 </menu>

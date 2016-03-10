@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.AgendaViewHolder> {
+public class RecyclerViewAgendaAdapter extends RecyclerView.Adapter<RecyclerViewAgendaAdapter.AgendaViewHolder> {
 
     private List<Agenda> listAgenda;
 
@@ -43,7 +43,7 @@ public class AgendaAdapter extends RecyclerView.Adapter<AgendaAdapter.AgendaView
         }
     }
 
-    public AgendaAdapter(List<Agenda> list){
+    public RecyclerViewAgendaAdapter(List<Agenda> list){
         this.listAgenda = list;
     }
 
