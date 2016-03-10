@@ -1,4 +1,4 @@
-package com.ent_ubp_android.app.fragment;
+package com.ent_ubp_android.app.fragment.profil;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,7 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.AgendaAdapter;
+import com.ent_ubp_android.app.adapter.RecyclerViewAgendaAdapter;
+import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.Agenda;
 
 import java.text.SimpleDateFormat;
@@ -79,7 +80,7 @@ public class ProfileFragment extends Fragment {
         }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(FragmentSwitcher.getActivity()));
-        recyclerView.setAdapter(new AgendaAdapter(printedListAgenda));
+        recyclerView.setAdapter(new RecyclerViewAgendaAdapter(printedListAgenda));
     }
 
     @Override

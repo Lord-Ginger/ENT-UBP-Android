@@ -13,9 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import com.ent_ubp_android.app.fragment.AgendaFragment;
+import com.ent_ubp_android.app.fragment.agenda.AgendaFragment;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
-import com.ent_ubp_android.app.fragment.ProfileFragment;
+import com.ent_ubp_android.app.fragment.classroom.ClassroomMainFragment;
+import com.ent_ubp_android.app.fragment.profil.ProfileFragment;
 import com.ent_ubp_android.app.fragment.formation.FormationMainFragment;
 
 /**
@@ -147,25 +148,31 @@ public class MainActivity
         //Check to see which item was being clicked and perform appropriate action
         switch (menuItem.getItemId()){
             case R.id.menuDrawer_profile:
-                Toast.makeText(getApplicationContext(),"Profil",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.navigation_menu_profil,Toast.LENGTH_SHORT).show();
                 fragment = new ProfileFragment();
-                getSupportActionBar().setTitle("Profil");
+                getSupportActionBar().setTitle(R.string.navigation_menu_profil);
                 break;
 
             case R.id.menuDrawer_agenda:
-                Toast.makeText(getApplicationContext(),"Agenda",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.navigation_menu_agenda,Toast.LENGTH_SHORT).show();
                 fragment = new AgendaFragment();
-                getSupportActionBar().setTitle("Agenda");
+                getSupportActionBar().setTitle(R.string.navigation_menu_agenda);
                 break;
 
             case R.id.menuDrawer_formation:
-                Toast.makeText(getApplicationContext(), "Formation", Toast .LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), R.string.navigation_menu_formation, Toast .LENGTH_LONG).show();
                 fragment = new FormationMainFragment();
-                getSupportActionBar().setTitle("Formations");
+                getSupportActionBar().setTitle(R.string.navigation_menu_formation);
+                break;
+
+            case R.id.menuDrawer_classroom:
+                Toast.makeText(getApplicationContext(), R.string.navigation_menu_classroom, Toast.LENGTH_LONG).show();
+                fragment = new ClassroomMainFragment();
+                getSupportActionBar().setTitle(R.string.navigation_menu_classroom);
                 break;
 
             default:
-                Toast.makeText(getApplicationContext(),"Erreur",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(),"Erreur lors du chargement du menu",Toast.LENGTH_SHORT).show();
                 break;
 
         }
@@ -188,9 +195,9 @@ public class MainActivity
         if(fm.getBackStackEntryCount() == 0)
             finish();
 
-        if(current != null)
+        if(current != null){
             updateHighLightNavigationDrawer(current);
-
+        }
 
 
     }
@@ -200,15 +207,19 @@ public class MainActivity
 
         if(tag.equals(ProfileFragment.class.getName())){
             navigationView.getMenu().getItem(0).setChecked(true);
-            getSupportActionBar().setTitle("Profil");
+            getSupportActionBar().setTitle(R.string.navigation_menu_profil);
 
         }else if(tag.equals(AgendaFragment.class.getName())){
             navigationView.getMenu().getItem(1).setChecked(true);
-            getSupportActionBar().setTitle("Agenda");
+            getSupportActionBar().setTitle(R.string.navigation_menu_agenda);
 
         }else if(tag.equals(FormationMainFragment.class.getName())){
             navigationView.getMenu().getItem(2).setChecked(true);
-            getSupportActionBar().setTitle("Formations");
+            getSupportActionBar().setTitle(R.string.navigation_menu_formation);
+        }
+        else if(tag.equals(ClassroomMainFragment.class.getName())){
+            navigationView.getMenu().getItem(3).setChecked(true);
+            getSupportActionBar().setTitle(R.string.navigation_menu_classroom);
         }
     }
 

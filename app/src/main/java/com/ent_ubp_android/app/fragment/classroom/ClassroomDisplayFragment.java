@@ -1,7 +1,8 @@
-package com.ent_ubp_android.app.fragment.formation;
+package com.ent_ubp_android.app.fragment.classroom;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,26 +13,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.Interface.IRecyclerViewClickListener;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.RecyclerViewFormationAdapter;
+import com.ent_ubp_android.app.adapter.RecyclerViewClassroomAdapter;
 import com.ent_ubp_android.app.exchange.serveur.SingletonUbpRestTemplate;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
-import com.ent_ubp_android.app.model.formation.FormationComponent;
-import com.ent_ubp_android.app.model.formation.FormationComposite;
+import com.ent_ubp_android.app.model.classroom.Classroom;
 import com.ent_ubp_android.app.model.formation.FormationEnum;
 import org.springframework.web.client.HttpClientErrorException;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-//TODO: Put a return button on the display list
-public class FormationDisplayFragment extends Fragment implements IRecyclerViewClickListener{
+public class ClassroomDisplayFragment extends Fragment implements IRecyclerViewClickListener{
 
     private WeakReference<HttpRequestTask> asyncTaskWeakRef;
     private RecyclerView recyclerView;
 
-    public static FormationDisplayFragment newInstance(int position) {
-        FormationDisplayFragment myFragment = new FormationDisplayFragment();
+    public static ClassroomDisplayFragment newInstance(int position) {
+        ClassroomDisplayFragment myFragment = new ClassroomDisplayFragment();
 
         Bundle args = new Bundle();
         args.putInt(String.valueOf(position), position);
@@ -40,75 +40,56 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
         return myFragment;
     }
 
-    public FormationDisplayFragment() {}
+    public ClassroomDisplayFragment() {
+        // Required empty public constructor
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //setRetainInstance(true);
         startNewAsyncTask();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_formation_display, container, false);
-    }
-
-    //Do Process
-    @Override
-    public void onActivityCreated (Bundle savedInstanceState){
-        super.onActivityCreated(savedInstanceState);
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_classroom_display, container, false);
     }
 
     @Override
-    public void onStart(){
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
         super.onStart();
     }
 
     @Override
-    public void onResume (){
+    public void onResume() {
         super.onResume();
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onPause (){
+    public void onPause() {
         super.onPause();
     }
 
     @Override
-    public void onStop (){
-        super.onStop();
-    }
-
-    @Override
-    public void onViewStateRestored (Bundle savedInstanceState){
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
     }
 
-    //TODO: PRINT IN GREEN WHEN THE NODE IS A LEAF
-    //TODO: ENABLE BUTTON + MAKE A TRANSITION TO UE FRAGMENT
     @Override
-    public void onRecyclerViewFormationItemClicked(View view, int position, FormationEnum type) {
-        if(type.equals(FormationEnum.COMPOSITE)) {
+    public void onDetach() {
+        super.onDetach();
+    }
 
-            RecyclerViewFormationAdapter adapter = (RecyclerViewFormationAdapter) recyclerView.getAdapter();
-            List<FormationComponent> childList = new ArrayList<>();
-
-            if (adapter.getItem(position).isLeaf()) {
-                childList.add(adapter.getItem(position));
-            } else {
-                childList.addAll(adapter.getItem(position).getFormations());
-            }
-
-            adapter.changeDataSet(childList);
-        }
+    @Override
+    public void onRecyclerViewItemClicked(View view, int position) {
 
     }
 
@@ -125,28 +106,27 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
                 !this.asyncTaskWeakRef.get().getStatus().equals(AsyncTask.Status.FINISHED);
     }
 
-
     /* ************************************************* */
     /*  Inner Class make the transaction with the server */
     /* ************************************************* */
-    private class HttpRequestTask extends AsyncTask<Void, Void, FormationComposite> {
+    private class HttpRequestTask extends AsyncTask<Void, Void, List<Classroom>> {
 
-        private WeakReference<FormationDisplayFragment> fragmentWeakRef;
-        private List<FormationComposite> listFormation;
+        private WeakReference<ClassroomDisplayFragment> fragmentWeakRef;
+        private List<Classroom> listClassroom;
 
-        private HttpRequestTask(FormationDisplayFragment fragment){
+        private HttpRequestTask(ClassroomDisplayFragment fragment){
             this.fragmentWeakRef = new WeakReference<>(fragment);
-            listFormation = new ArrayList<>();
+            listClassroom = new ArrayList<>();
         }
 
         @Override
-        protected FormationComposite doInBackground(Void... params) {
+        protected List<Classroom> doInBackground(Void... params) {
             try {
-                final String url = SingletonUbpRestTemplate.BASE_URL + "formation/root";
+                final String url = SingletonUbpRestTemplate.BASE_URL + "classroom";
 
                 SingletonUbpRestTemplate restTemplate = SingletonUbpRestTemplate.getRestTemplate();
-                return restTemplate.getForObject(url, FormationComposite.class);
-
+                Classroom[] tabClass = restTemplate.getForObject(url, Classroom[].class);
+                return Arrays.asList(tabClass);
             }
             catch (HttpClientErrorException e){
                 return null;
@@ -158,14 +138,13 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
         }
 
         @Override
-        protected void onPostExecute(FormationComposite formationComposite) {
-            super.onPostExecute(formationComposite);
+        protected void onPostExecute(List<Classroom> classroom) {
+            super.onPostExecute(classroom);
 
-            if(formationComposite != null){
-                listFormation.add(formationComposite);
-                recyclerView = (RecyclerView) fragmentWeakRef.get().getView().findViewById(R.id.formation_rv);
+            if(classroom != null){
+                recyclerView = (RecyclerView) fragmentWeakRef.get().getView().findViewById(R.id.classroom_rv);
                 recyclerView.setLayoutManager(new LinearLayoutManager(FragmentSwitcher.getActivity()));
-                recyclerView.setAdapter(new RecyclerViewFormationAdapter(fragmentWeakRef.get(), listFormation));
+                recyclerView.setAdapter(new RecyclerViewClassroomAdapter(fragmentWeakRef.get(), classroom));
             }
             else{
                 AlertDialog.Builder alert = new AlertDialog.Builder(getActivity(), R.style.AppCompatAlertDialogStyle);
@@ -178,9 +157,7 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
         }
     }
 
-
-
     @Override
-    public void onRecyclerViewItemClicked(View view, int position) {
+    public void onRecyclerViewFormationItemClicked(View view, int position, FormationEnum type) {
     }
 }

@@ -14,7 +14,7 @@ import com.ent_ubp_android.app.model.formation.FormationLeaf;
 
 import java.util.List;
 
-public class FormationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class RecyclerViewFormationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private static IRecyclerViewClickListener mListener;
     private List<FormationComponent> listFormation;
@@ -42,12 +42,12 @@ public class FormationAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         @Override
         public void onClick(View v) {
-            mListener.onRecyclerViewItemClicked(v, this.getLayoutPosition(), type);
+            mListener.onRecyclerViewFormationItemClicked(v, this.getLayoutPosition(), type);
         }
     }
 
     //Constructor of the Adapter
-    public FormationAdapter(IRecyclerViewClickListener itemListener, List<FormationComposite> listFormation){
+    public RecyclerViewFormationAdapter(IRecyclerViewClickListener itemListener, List<FormationComposite> listFormation){
         this.listFormation = (List<FormationComponent>) (List<?>) listFormation;
         this.mListener = itemListener;
     }

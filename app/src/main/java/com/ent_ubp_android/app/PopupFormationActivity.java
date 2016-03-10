@@ -52,7 +52,7 @@ public class PopupFormationActivity extends AppCompatActivity {
 //    }
 //
 //    @Override
-//    public void onRecyclerViewItemClicked(View view, int position) {
+//    public void onRecyclerViewFormationItemClicked(View view, int position) {
 //        FormationAdapter adapter = (FormationAdapter)((RecyclerView)view.getParent()).getAdapter();
 //        adapter.changeDataSet(formation2);
 //    }

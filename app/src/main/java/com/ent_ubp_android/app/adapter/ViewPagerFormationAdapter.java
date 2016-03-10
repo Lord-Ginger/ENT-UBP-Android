@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import com.ent_ubp_android.app.fragment.formation.FormationAddFragment;
 import com.ent_ubp_android.app.fragment.formation.FormationDisplayFragment;
 
-public class ViewPagerFormationAdapter extends FragmentStatePagerAdapter {
+public class ViewPagerFormationAdapter extends FragmentStatePagerAdapter{
 
     private int numbOfTab;
 

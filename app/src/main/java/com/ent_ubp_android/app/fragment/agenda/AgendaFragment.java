@@ -1,4 +1,4 @@
-package com.ent_ubp_android.app.fragment;
+package com.ent_ubp_android.app.fragment.agenda;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.AgendaAdapter;
+import com.ent_ubp_android.app.adapter.RecyclerViewAgendaAdapter;
+import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.Agenda;
 
 import java.util.ArrayList;
@@ -53,7 +54,7 @@ public class AgendaFragment extends Fragment {
         //Définition de l'agencement des cellules
         recyclerView.setLayoutManager(new LinearLayoutManager(FragmentSwitcher.getActivity()));
         //Permet de remplir notre recyclerView
-        recyclerView.setAdapter(new AgendaAdapter(agenda));
+        recyclerView.setAdapter(new RecyclerViewAgendaAdapter(agenda));
     }
 
     @Override
