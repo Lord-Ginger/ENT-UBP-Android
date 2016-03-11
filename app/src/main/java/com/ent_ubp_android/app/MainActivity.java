@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.Toast;
 import com.ent_ubp_android.app.fragment.agenda.AgendaFragment;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
@@ -169,6 +170,10 @@ public class MainActivity
                 Toast.makeText(getApplicationContext(), R.string.navigation_menu_classroom, Toast.LENGTH_LONG).show();
                 fragment = new ClassroomMainFragment();
                 getSupportActionBar().setTitle(R.string.navigation_menu_classroom);
+                break;
+
+            case 2:
+                fragment = new ProfesseurFragment();
                 break;
 
             default:
