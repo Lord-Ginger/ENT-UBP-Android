@@ -95,6 +95,22 @@
     </LinearLayout>
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Contact"
+                android:id="@+id/button_contact"
+                style="@style/Button"
+
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

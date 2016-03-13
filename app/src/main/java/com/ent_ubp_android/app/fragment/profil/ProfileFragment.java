@@ -7,31 +7,38 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.ent_ubp_android.app.R;
 import com.ent_ubp_android.app.adapter.RecyclerViewAgendaAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.Agenda;
+import com.ent_ubp_android.app.model.teacher.*;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-//TODO: DO A BETTER DESIGN TO THE HEADER
+//TODO: Faire quelquechose pour les heure faites et à faire (calculer à l'aide des cours)
 public class ProfileFragment extends Fragment {
 
     private List<Agenda> listAgenda;
     private List<Agenda> printedListAgenda;
 
     private int nbHourDone = 150;
-    private int nbHourPrev = 300;
+    private int nbHourPrev = 196;
     private int nbHourMust = nbHourPrev-nbHourDone;
+
+
+    //Teacher professeur;
 
     RecyclerView recyclerView;
     TextView textHourDone;
     TextView textHourPrev;
     TextView textHourSous;
     ProgressBar progressBar;
+
+    Button bouton_contact;
 
     /* Fin test Données */
 
@@ -42,7 +49,6 @@ public class ProfileFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Agenda
         remplirAgenda();
         createPrintedList();
     }
@@ -57,6 +63,14 @@ public class ProfileFragment extends Fragment {
         textHourPrev = (TextView) rootView.findViewById(R.id.textHourPrev);
         textHourSous = (TextView) rootView.findViewById(R.id.textHourSous);
         progressBar = (ProgressBar) rootView.findViewById(R.id.progressBar);
+        bouton_contact = (Button) rootView.findViewById(R.id.button_contact);
+
+        bouton_contact.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                displayContact();
+            }
+        });
 
         return rootView;
     }
@@ -131,4 +145,8 @@ public class ProfileFragment extends Fragment {
         listAgenda.add(new Agenda(new GregorianCalendar(2016, 2, 10), "8:00 - 10:00", "Compilation", "3002"));
     }
 
+
+    private void displayContact(){
+        Fragment fragment = new ContactFragment();
+    }
 }
