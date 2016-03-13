@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.ent_ubp_android.app.fragment.agenda.AgendaFragment;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.fragment.classroom.ClassroomMainFragment;
+import com.ent_ubp_android.app.fragment.professeur.ProfesseurMainFragment;
 import com.ent_ubp_android.app.fragment.profil.ProfileFragment;
 import com.ent_ubp_android.app.fragment.formation.FormationMainFragment;
 
@@ -172,8 +173,10 @@ public class MainActivity
                 getSupportActionBar().setTitle(R.string.navigation_menu_classroom);
                 break;
 
-            case 2:
-                fragment = new ProfesseurFragment();
+            case R.id.menuDrawer_professeur:
+                Toast.makeText(getApplicationContext(), R.string.navigation_menu_professeur, Toast.LENGTH_LONG).show();
+                fragment = new ProfesseurMainFragment();
+                getSupportActionBar().setTitle(R.string.navigation_menu_professeur);
                 break;
 
             default:

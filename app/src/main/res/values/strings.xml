@@ -10,6 +10,7 @@
     <string name="navigation_menu_agenda">Agenda</string>
     <string name="navigation_menu_formation">Formation</string>
     <string name="navigation_menu_classroom">Salle de cours</string>
+    <string name="navigation_menu_professeur">Professeurs</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
 
@@ -22,6 +23,10 @@
     <string name="profil_heure_faite">Heures faites :</string>
     <string name="profil_heure_faire">Heures à faire :</string>
     <string name="profil_agenda_title">Cours de la journée</string>
+
+    <!--Fragment Professeur Add-->
+    <string name="professeur_add_adresse">Adresse</string>
+    <string name="professeur_add_type">Type</string>
 
     <!--Classroom Display -->
     <string name="classroom_display_title">Choix de la salle de cours</string>

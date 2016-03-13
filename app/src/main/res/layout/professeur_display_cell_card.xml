@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/professeur_cv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="?attr/colorPrimary"
+        app:cardElevation="6dp"
+        app:cardCornerRadius="2dp"
+        app:cardPreventCornerOverlap="false">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+        <TextView android:id="@+id/professeur_prenom"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:layout_alignParentTop="true"
+                  android:layout_alignParentLeft="true"
+                  android:padding="20dp"
+                  android:textStyle="bold"
+                  android:text="prenom Prof"/>
+
+        <TextView android:id="@+id/professeur_nom"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:layout_centerInParent="true"
+                  android:layout_alignParentLeft="true"
+                  android:layout_toRightOf="@+id/professeur_prenom"
+                  android:padding="20dp"
+                  android:textStyle="bold"
+                  android:text="nom prof"/>
+
+        <TextView android:id="@+id/professeur_mail"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:layout_centerInParent="true"
+                  android:layout_alignParentLeft="true"
+                  android:layout_below="@+id/professeur_prenom"
+                  android:padding="20dp"
+                  android:text="mail prof"/>
+
+        <TextView android:id="@+id/professeur_tel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:layout_centerInParent="true"
+                  android:layout_alignParentLeft="true"
+                  android:layout_below="@+id/professeur_mail"
+                  android:padding="20dp"
+                  android:text="nom prof"/>
+
+
+        <TextView android:id="@+id/professeur_type"
+                  android:gravity="center"
+                  android:layout_centerInParent="true"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_below="@+id/professeur_mail"
+                  android:layout_alignParentRight="true"
+                  android:padding="20dp"
+                  android:textStyle="italic"
+                  android:text="Type"/>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
