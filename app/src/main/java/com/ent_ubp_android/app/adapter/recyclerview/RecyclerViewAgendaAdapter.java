@@ -1,4 +1,4 @@
-package com.ent_ubp_android.app.adapter;
+package com.ent_ubp_android.app.adapter.recyclerview;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
