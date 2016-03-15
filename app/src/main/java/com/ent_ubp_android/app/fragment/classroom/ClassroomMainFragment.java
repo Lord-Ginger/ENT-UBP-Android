@@ -13,6 +13,7 @@ import com.ent_ubp_android.app.R;
 import com.ent_ubp_android.app.adapter.viewpager.ViewPagerClassroomAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 
+//TODO: MANAGE EQUIPMENT
 public class ClassroomMainFragment extends Fragment {
 
     TabLayout tabLayout;

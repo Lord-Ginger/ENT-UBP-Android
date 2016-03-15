@@ -26,7 +26,6 @@ public class ClassroomAddFragment extends Fragment implements CompoundButton.OnC
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
