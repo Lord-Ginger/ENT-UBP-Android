@@ -1,16 +1,12 @@
 package com.ent_ubp_android.app.fragment.professeur;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import com.ent_ubp_android.app.R;
@@ -25,12 +21,9 @@ import com.ent_ubp_android.app.model.teacher.contact.phone.Phone;
 import com.ent_ubp_android.app.model.teacher.contact.phone.PhoneDetails;
 import com.ent_ubp_android.app.model.teacher.name.Name;
 
-
+//TODO: Link with server
 public class ProfesseurAddFragment extends Fragment {
 
-    
-    
-    
     EditText nom;
     EditText prenom;
     EditText num_rue;
@@ -71,6 +64,7 @@ public class ProfesseurAddFragment extends Fragment {
         univ_rb = (RadioButton)v.findViewById(R.id.radio_universitaire);
         inter_rb = (RadioButton) v.findViewById(R.id.radio_intervenant);
 
+        addButton = (Button) v.findViewById(R.id.button_add_prof);
         addButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

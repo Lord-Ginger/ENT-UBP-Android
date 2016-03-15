@@ -11,11 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.ViewPagerProfesseurAdapter;
+import com.ent_ubp_android.app.adapter.viewpager.ViewPagerProfesseurAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 
 
 public class ProfesseurMainFragment extends Fragment {
+
     TabLayout tabLayout;
     ViewPager viewPager;
 
@@ -32,8 +33,8 @@ public class ProfesseurMainFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_professeur_main, container, false);
 
-        tabLayout = (TabLayout) v.findViewById(R.id.class_tabsLayout);
-        viewPager = (ViewPager) v.findViewById(R.id.class_viewpager);
+        tabLayout = (TabLayout) v.findViewById(R.id.prof_tabsLayout);
+        viewPager = (ViewPager) v.findViewById(R.id.prof_viewpager);
 
         return v;
     }

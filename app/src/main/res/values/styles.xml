@@ -13,6 +13,11 @@
             colorControlHighlight and colorSwitchThumbNormal. -->
     </style>
 
+    <style name="UbpTheme.Checkbox" parent="UbpTheme.Base">
+        <item name="colorControlNormal">@color/unchecked</item>
+        <item name="colorControlActivated">@color/checked</item>
+    </style>
+
     <style name="UbpTheme" parent="UbpTheme.Base">
     </style>
 

@@ -11,6 +11,7 @@
               android:paddingTop="0dp"
               android:gravity="center_horizontal"
               android:text="@string/formation_title"
+              android:textSize="20sp"
               android:textStyle="bold"
               android:textColor="?attr/colorPrimaryDark"/>
 

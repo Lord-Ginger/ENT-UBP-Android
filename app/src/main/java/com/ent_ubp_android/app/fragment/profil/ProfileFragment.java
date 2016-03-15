@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.RecyclerViewAgendaAdapter;
+import com.ent_ubp_android.app.adapter.recyclerview.RecyclerViewAgendaAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.Agenda;
 import com.ent_ubp_android.app.model.teacher.*;
