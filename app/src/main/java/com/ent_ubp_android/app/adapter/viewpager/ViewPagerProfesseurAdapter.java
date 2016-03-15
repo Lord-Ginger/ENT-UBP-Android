@@ -1,4 +1,4 @@
-package com.ent_ubp_android.app.adapter;
+package com.ent_ubp_android.app.adapter.viewpager;
 
 
 import android.support.v4.app.Fragment;

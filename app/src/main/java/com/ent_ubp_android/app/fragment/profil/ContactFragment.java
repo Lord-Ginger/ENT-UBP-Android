@@ -1,21 +1,14 @@
 package com.ent_ubp_android.app.fragment.profil;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.TextView;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.ViewPagerProfesseurAdapter;
-import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.teacher.Teacher;
 import com.ent_ubp_android.app.model.teacher.TeacherType;
 import com.ent_ubp_android.app.model.teacher.contact.Contact;

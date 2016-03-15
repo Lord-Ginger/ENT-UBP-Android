@@ -1,7 +1,5 @@
 package com.ent_ubp_android.app.fragment.professeur;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,7 +14,7 @@ import android.view.ViewGroup;
 
 import com.ent_ubp_android.app.Interface.IRecyclerViewClickListener;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.RecyclerViewProfesseurAdapter;
+import com.ent_ubp_android.app.adapter.recyclerview.RecyclerViewProfesseurAdapter;
 import com.ent_ubp_android.app.exchange.serveur.SingletonUbpRestTemplate;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.formation.FormationEnum;
