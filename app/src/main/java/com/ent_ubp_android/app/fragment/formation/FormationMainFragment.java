@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.ViewPagerFormationAdapter;
+import com.ent_ubp_android.app.adapter.viewpager.ViewPagerFormationAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 
 //TODO: when we reload from the nav an press back Blank fragment

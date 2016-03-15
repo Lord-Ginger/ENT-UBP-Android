@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.Interface.IRecyclerViewClickListener;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.RecyclerViewClassroomAdapter;
+import com.ent_ubp_android.app.adapter.recyclerview.RecyclerViewClassroomAdapter;
 import com.ent_ubp_android.app.exchange.serveur.SingletonUbpRestTemplate;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.classroom.Classroom;

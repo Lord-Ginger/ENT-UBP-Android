@@ -11,10 +11,7 @@ import com.ent_ubp_android.app.R;
 
 public class ClassroomAddFragment extends Fragment {
 
-
-
     public ClassroomAddFragment() {
-        // Required empty public constructor
     }
 
     @Override

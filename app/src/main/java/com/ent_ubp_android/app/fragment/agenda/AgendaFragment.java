@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.RecyclerViewAgendaAdapter;
+import com.ent_ubp_android.app.adapter.recyclerview.RecyclerViewAgendaAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.Agenda;
 

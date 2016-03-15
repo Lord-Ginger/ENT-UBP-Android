@@ -1,13 +1,71 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.ent_ubp_android.app.fragment.classroom.ClassroomAddFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="com.ent_ubp_android.app.fragment.classroom.ClassroomAddFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+    <TextView android:id="@+id/classroom_add_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Ajout d'une nouvelle salle de cours"
+              android:padding="20dp"
+              android:textSize="20sp"
+              android:gravity="center"
+              android:textStyle="bold"
+              android:textColor="?attr/colorPrimaryDark"
+              android:layout_alignParentTop="true"/>
 
-</FrameLayout>
+
+    <TextView android:id="@+id/classroom_add_salle"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Nom de la salle"
+              android:padding="15dp"
+              android:textSize="15sp"
+              android:gravity="center"
+              android:textStyle="bold"
+              android:textColor="?attr/colorPrimaryDark"
+              android:layout_below="@+id/classroom_add_title"/>
+
+    <EditText android:id="@+id/classroom_add_edit_salle"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:hint="Nom de la salle"
+              android:padding="15dp"
+              android:gravity="center"
+              android:textStyle="bold"
+              android:textSize="15sp"
+              android:textColor="?attr/colorPrimaryDark"
+              android:layout_below="@+id/classroom_add_title"
+              android:layout_toRightOf="@+id/classroom_add_salle"
+                android:layout_alignParentRight="true"/>
+
+    <TextView android:id="@+id/classroom_add_capa"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Capacité"
+              android:paddingTop="15dp"
+              android:paddingRight="37dp"
+              android:paddingBottom="15dp"
+              android:paddingLeft="36dp"
+              android:textSize="15sp"
+              android:gravity=""
+              android:textStyle="bold"
+              android:textColor="?attr/colorPrimaryDark"
+              android:layout_below="@+id/classroom_add_salle"/>
+
+    <EditText android:id="@+id/classroom_add_edit_capa"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:hint="Capacité"
+              android:padding="15dp"
+              android:gravity="center"
+              android:textStyle="bold"
+              android:textSize="15sp"
+              android:textColor="?attr/colorPrimaryDark"
+              android:layout_below="@+id/classroom_add_edit_salle"
+              android:layout_toRightOf="@+id/classroom_add_capa"
+              android:layout_alignParentRight="true"/>
+
+</RelativeLayout>

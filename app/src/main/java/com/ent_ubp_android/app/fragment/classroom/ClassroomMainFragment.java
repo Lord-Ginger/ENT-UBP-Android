@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.ent_ubp_android.app.R;
-import com.ent_ubp_android.app.adapter.ViewPagerClassroomAdapter;
+import com.ent_ubp_android.app.adapter.viewpager.ViewPagerClassroomAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 
 public class ClassroomMainFragment extends Fragment {
