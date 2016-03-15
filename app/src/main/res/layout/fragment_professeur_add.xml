@@ -140,7 +140,7 @@
 
     </LinearLayout>
 
-    <Button
+    <Button android:id="@+id/button_add_prof"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ajouter"
