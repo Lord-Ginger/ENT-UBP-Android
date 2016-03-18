@@ -1,72 +1,109 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.ent_ubp_android.app.fragment.professeur.ProfesseurAddFragment"
-             android:orientation="vertical"
->
-
-    <LinearLayout
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context="com.ent_ubp_android.app.fragment.professeur.ProfesseurAddFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-    >
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/prof_add_prenom"
-            android:text="Prenom"/>
+        android:layout_height="match_parent"
 
-
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/prof_add_nom"
-            android:text="Nom"/>
-
-
-    </LinearLayout>
-
+>
     <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="vertical"
+                  style="@style/ubp_add"
+    >
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             style="@style/ubp_add"
-    >
-        <TextView
-                android:layout_width="wrap_content"
+        >
+            <EditText
+                    android:layout_weight="0.5"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/professeur_add_adresse"
-                android:textStyle="bold"
-                style="@style/ubp_add"/>
+                android:layout_gravity="left"
+                android:id="@+id/prof_add_prenom"
+                android:text="Prenom"
+                    style="@style/ubp_add"
+
+            />
 
 
+
+            <EditText
+                android:layout_weight="0.5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:id="@+id/prof_add_nom"
+                android:text="Nom"
+                style="@style/ubp_add"
+            />
+
+
+        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                style="@style/ubp_add"
         >
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/professeur_add_adresse"
+                    android:textStyle="bold"
+                    style="@style/ubp_add"/>
+
+
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    style="@style/ubp_add"
+            >
+                <EditText
+                        android:layout_weight="0.2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:id="@+id/prof_add_num_rue"
+                        android:text="n° Rue"
+                        style="@style/ubp_add"/>
+
+
+
+                <EditText
+                        android:layout_weight="0.8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:id="@+id/prof_add_rue"
+                        android:text="Rue"
+                        style="@style/ubp_add"/>
+
+
+            </LinearLayout>
+
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:id="@+id/prof_add_num_rue"
-                    android:text="n° Rue"/>
-
-
-
+                    android:id="@+id/prof_add_zip"
+                    android:text="ZIP"
+                    style="@style/ubp_add"/>
             <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:id="@+id/prof_add_rue"
-                    android:text="Rue"/>
-
+                    android:id="@+id/prof_add_ville"
+                    android:text="Ville"
+                    style="@style/ubp_add"/>
 
         </LinearLayout>
 
@@ -74,79 +111,72 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:id="@+id/prof_add_zip"
-                android:text="ZIP"/>
+                android:id="@+id/prof_add_phone"
+                android:text="Telephone"
+                style="@style/ubp_add"/>
         <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:id="@+id/prof_add_ville"
-                android:text="Ville"/>
-
-    </LinearLayout>
-
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/prof_add_phone"
-            android:text="Telephone"/>
-    <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:id="@+id/prof_add_mail"
-            android:text="E-mail"/>
-
-
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            style="@style/ubp_add"
-    >
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/professeur_add_type"
-                android:textStyle="bold"
+                android:id="@+id/prof_add_mail"
+                android:text="E-mail"
                 style="@style/ubp_add"/>
 
 
-
-
-
-        <RadioGroup
+        <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
-
-            <RadioButton
+                android:orientation="vertical"
+                style="@style/ubp_add"
+        >
+            <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radio_universitaire"
-                    android:checked="true"
-                    />
+                    android:layout_gravity="center"
+                    android:text="@string/professeur_add_type"
+                    android:textStyle="bold"
+                    style="@style/ubp_add"/>
 
-            <RadioButton
-                    android:layout_width="wrap_content"
+
+
+
+
+            <RadioGroup
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/radio_intervenant"
-            />
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    style="@style/ubp_add">
 
-        </RadioGroup>
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/radio_universitaire"
+                        android:text="@string/professeur_type_university_string"
+                        android:checked="true"
+                        style="@style/ubp_add"
+                        />
+
+                <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/professeur_type_outsider_string"
+                        android:id="@+id/radio_intervenant"
+                        style="@style/ubp_add"
+                />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+        <Button android:id="@+id/button_add_prof"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ajouter"
+                style="@style/Button"
+        />
+
+
 
     </LinearLayout>
-
-    <Button android:id="@+id/button_add_prof"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ajouter"
-            style="@style/Button"
-    />
-
-
-
-</LinearLayout>
+</ScrollView>
