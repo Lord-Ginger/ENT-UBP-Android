@@ -24,7 +24,7 @@ public class FragmentSwitcher {
         return activity.getSupportFragmentManager();
     }
 
-    public final void startAnotherFragment(Fragment fragment){
+    public static final void startAnotherFragment(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 

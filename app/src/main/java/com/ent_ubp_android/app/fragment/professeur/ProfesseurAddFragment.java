@@ -108,35 +108,35 @@ public class ProfesseurAddFragment extends Fragment {
     }
 
     private void addProfesseur(){
-        Name name = new Name(prenom.getText().toString(),nom.getText().toString());
-        Contact contact = new Contact();
-        TeacherType teacherType;
-
-
-        AddressDetails adD = new AddressDetails(num_rue.getText().toString(),
-                                                rue.getText().toString(),
-                                                zip.getText().toString(),
-                                                ville.getText().toString());
-        Address ad = new Address(adD);
-
-        PhoneDetails phD = new PhoneDetails(phone.getText().toString());
-        Phone ph = new Phone(phD);
-
-        EmailDetails emD = new EmailDetails(mail.getText().toString());
-        Email em = new Email(emD);
-
-        contact.addAddress(ad);
-        contact.addEmail(em);
-        contact.addPhone(ph);
-
-        if (univ_rb.isChecked()) {
-            teacherType = TeacherType.UNIVERSITY_TEACHER;
-        }
-        else {
-            teacherType = TeacherType.OUTSIDER_TEACHER;
-        }
-
-        Teacher t = new Teacher(name,contact,teacherType);
+//        Name name = new Name(prenom.getText().toString(),nom.getText().toString());
+//        Contact contact = new Contact();
+//        TeacherType teacherType;
+//
+//
+//        AddressDetails adD = new AddressDetails(num_rue.getText().toString(),
+//                                                rue.getText().toString(),
+//                                                zip.getText().toString(),
+//                                                ville.getText().toString());
+//        Address ad = new Address(adD);
+//
+//        PhoneDetails phD = new PhoneDetails(phone.getText().toString());
+//        Phone ph = new Phone(phD);
+//
+//        EmailDetails emD = new EmailDetails(mail.getText().toString());
+//        Email em = new Email(emD);
+//
+//        contact.addAddress(ad);
+//        contact.addEmail(em);
+//        contact.addPhone(ph);
+//
+//        if (univ_rb.isChecked()) {
+//            teacherType = TeacherType.UNIVERSITY_TEACHER;
+//        }
+//        else {
+//            teacherType = TeacherType.OUTSIDER_TEACHER;
+//        }
+//
+//        Teacher t = new Teacher(name,contact,teacherType);
 
     }
 

@@ -14,7 +14,6 @@ import com.ent_ubp_android.app.R;
 import com.ent_ubp_android.app.adapter.recyclerview.RecyclerViewAgendaAdapter;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.model.Agenda;
-import com.ent_ubp_android.app.model.teacher.*;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -68,7 +67,7 @@ public class ProfileFragment extends Fragment {
         bouton_contact.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                displayContact();
+                FragmentSwitcher.startAnotherFragment(new ContactFragment());
             }
         });
 
