@@ -28,6 +28,12 @@
     <string name="professeur_add_adresse">Adresse</string>
     <string name="professeur_add_type">Type</string>
 
+    <!--type de prof-->
+    <string name="professeur_type_university_string">Universitaire</string>
+    <string name="professeur_type_outsider_string">Intervenant</string>
+
+
+
     <!--Classroom Display -->
     <string name="classroom_display_title">Choix de la salle de cours</string>
 

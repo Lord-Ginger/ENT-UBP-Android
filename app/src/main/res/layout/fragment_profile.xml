@@ -103,6 +103,7 @@
         <Button android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Contact"
+                android:background="?attr/selectableItemBackground"
                 android:id="@+id/button_contact"
                 style="@style/Button"
 

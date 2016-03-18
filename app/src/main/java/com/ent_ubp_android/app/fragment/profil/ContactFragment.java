@@ -20,6 +20,9 @@ import com.ent_ubp_android.app.model.teacher.contact.phone.Phone;
 import com.ent_ubp_android.app.model.teacher.contact.phone.PhoneDetails;
 import com.ent_ubp_android.app.model.teacher.name.Name;
 
+import java.util.Iterator;
+import java.util.Set;
+
 
 public class ContactFragment extends Fragment {
 
@@ -48,7 +51,9 @@ public class ContactFragment extends Fragment {
 
         /*TODO sera remplacé par la récupération du prof*/
 
-        Name name = new Name("Florian","Dubois");
+
+
+        Name name = new Name("Thirry","Benois");
         Contact contact = new Contact();
 
 
@@ -69,7 +74,16 @@ public class ContactFragment extends Fragment {
 
 
         /*------------------------------------------------------*/
+
+
+
+
         professeur = new Teacher(name,contact,teacherType);
+
+        Set<Phone> telephones;
+        Set<Address> adresses;
+        Set<Email> courriels;
+
 
         addresse_tv = (TextView) v.findViewById(R.id.contact_adresse);
         mail_tv = (TextView) v.findViewById(R.id.contact_mail);
@@ -80,10 +94,33 @@ public class ContactFragment extends Fragment {
 
         prenom_tv.setText(professeur.getName().getFirstName());
         nom_tv.setText(professeur.getName().getLastName());
-        type_tv.setText(professeur.getType().toString());
-        mail_tv.setText(professeur.getContact().getEmails().toString());
-        tel_tv.setText(professeur.getContact().getPhones().toString());
-        addresse_tv.setText(professeur.getContact().getEmails().toString());
+
+
+        if(professeur.getType().toString().compareTo(TeacherType.UNIVERSITY_TEACHER.toString())==0){
+            type_tv.setText(R.string.professeur_type_university_string);
+        }else{
+            type_tv.setText(R.string.professeur_type_outsider_string);
+        }
+
+        courriels = professeur.getContact().getEmails();
+        telephones = professeur.getContact().getPhones();
+        adresses = professeur.getContact().getAddresses();
+
+        /*récupération du premier SET*/
+        Iterator itC = courriels.iterator();
+        Iterator itT = telephones.iterator();
+        Iterator itA = adresses.iterator();
+
+        Address tempad = (Address) itA.next();
+        Email tempmail = (Email) itC.next();
+        Phone tempphone = (Phone) itT.next();
+        /*---------------------------*/
+
+
+        mail_tv.setText(tempmail.getDetails().getAddress());
+        tel_tv.setText(tempphone.getDetails().getNumber());
+        addresse_tv.setText(tempad.getDetails().getAllAddress());
+
 
         return v;
     }

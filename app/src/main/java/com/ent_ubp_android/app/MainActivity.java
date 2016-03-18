@@ -229,7 +229,10 @@ public class MainActivity
             navigationView.getMenu().getItem(3).setChecked(true);
             getSupportActionBar().setTitle(R.string.navigation_menu_classroom);
         }
+
         else if(tag.equals(ProfesseurMainFragment.class.getName())){
+
+
             navigationView.getMenu().getItem(4).setChecked(true);
             getSupportActionBar().setTitle(R.string.navigation_menu_professeur);
         }

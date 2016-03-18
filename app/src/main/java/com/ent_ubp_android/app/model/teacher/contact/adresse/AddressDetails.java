@@ -53,6 +53,11 @@ public class AddressDetails {
         return city;
     }
 
+    public String getAllAddress() {
+        String tempAdD = "";
+        return tempAdD.concat(this.getStreetNumber()+" "+this.getStreet()+" "+this.getZip()+" "+this.getCity());
+    }
+
 
     private String formatZipCode(String zip) {
         zip = zip.trim();
