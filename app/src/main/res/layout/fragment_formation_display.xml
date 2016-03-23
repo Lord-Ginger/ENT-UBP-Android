@@ -15,7 +15,8 @@
               android:textStyle="bold"
               android:textColor="?attr/colorPrimaryDark"/>
 
-    <TextView android:layout_width="match_parent"
+    <TextView android:id="@+id/formation_display_path"
+              android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:padding="10dp"
               android:text="@string/formation_title"

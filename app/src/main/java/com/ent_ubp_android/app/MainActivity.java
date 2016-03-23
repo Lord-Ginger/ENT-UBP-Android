@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.ent_ubp_android.app.fragment.agenda.AgendaFragment;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.fragment.classroom.ClassroomMainFragment;
+import com.ent_ubp_android.app.fragment.formation.FormationDisplayFragment;
 import com.ent_ubp_android.app.fragment.professeur.ProfesseurMainFragment;
 import com.ent_ubp_android.app.fragment.professeur.home_teacher.TeacherHomeFragment;
 import com.ent_ubp_android.app.fragment.profil.ProfileFragment;
@@ -127,11 +128,11 @@ public class MainActivity
 
     @Override
     public void onBackPressed() {
-        if(drawerLayout.isDrawerOpen(navigationView)) {
+        if (drawerLayout.isDrawerOpen(navigationView)) {
             drawerLayout.closeDrawers();
-
-        }else
+        } else {
             super.onBackPressed();
+        }
     }
 
     //Set the action of the navigation Menu
@@ -163,7 +164,7 @@ public class MainActivity
 
             case R.id.menuDrawer_formation:
                 Toast.makeText(getApplicationContext(), R.string.navigation_menu_formation, Toast .LENGTH_LONG).show();
-                fragment = new FormationMainFragment();
+                fragment = new FormationDisplayFragment();
                 getSupportActionBar().setTitle(R.string.navigation_menu_formation);
                 break;
 
@@ -212,8 +213,6 @@ public class MainActivity
         if(current != null){
             updateHighLightNavigationDrawer(current);
         }
-
-
     }
 
     public void updateHighLightNavigationDrawer(Fragment current){

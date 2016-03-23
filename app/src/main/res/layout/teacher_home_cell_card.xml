@@ -5,6 +5,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     app:cardElevation="6dp"
+                                    app:cardBackgroundColor="@color/agenda_background"
                                     app:cardCornerRadius="2dp"
                                     app:cardPreventCornerOverlap="false">
     <LinearLayout
@@ -15,6 +16,7 @@
         <TextView android:id="@+id/teacher_formation"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
+                  android:textColor="@android:color/white"
                   android:gravity="center"
                   android:padding="10dp"
                   android:text="Master 1 - Informatique"/>
@@ -22,6 +24,7 @@
         <TextView android:id="@+id/teacher_name_type_course"
                   android:layout_width="match_parent"
                   android:layout_height="wrap_content"
+                  android:textColor="@android:color/white"
                   android:text="Complexite - TD"
                   android:gravity="center"
                   android:padding="10dp"

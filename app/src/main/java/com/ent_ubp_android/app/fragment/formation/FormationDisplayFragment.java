@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import com.ent_ubp_android.app.Interface.IRecyclerViewClickListener;
 import com.ent_ubp_android.app.R;
 import com.ent_ubp_android.app.adapter.recyclerview.RecyclerViewFormationAdapter;
@@ -29,6 +30,8 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
 
     private WeakReference<HttpRequestTask> asyncTaskWeakRef;
     private RecyclerView recyclerView;
+    private TextView path;
+    private int cmp = 0;
 
     public static FormationDisplayFragment newInstance(int position) {
         FormationDisplayFragment myFragment = new FormationDisplayFragment();
@@ -53,7 +56,12 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_formation_display, container, false);
+        View view =  inflater.inflate(R.layout.fragment_formation_display, container, false);
+
+        path = (TextView) view.findViewById(R.id.formation_display_path);
+        path.setText("Chemin : ");
+
+        return view;
     }
 
     //Do Process
@@ -97,7 +105,6 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
     @Override
     public void onRecyclerViewFormationItemClicked(View view, int position, FormationEnum type) {
         if(type.equals(FormationEnum.COMPOSITE)) {
-
             RecyclerViewFormationAdapter adapter = (RecyclerViewFormationAdapter) recyclerView.getAdapter();
             List<FormationComponent> childList = new ArrayList<>();
 
@@ -106,7 +113,13 @@ public class FormationDisplayFragment extends Fragment implements IRecyclerViewC
             } else {
                 childList.addAll(adapter.getItem(position).getFormations());
             }
+            if(cmp == 0)
+                path.append(adapter.getItem(position).getName());
 
+            else
+                path.append(" > " + adapter.getItem(position).getName());
+
+            cmp++;
             adapter.changeDataSet(childList);
         }
 
