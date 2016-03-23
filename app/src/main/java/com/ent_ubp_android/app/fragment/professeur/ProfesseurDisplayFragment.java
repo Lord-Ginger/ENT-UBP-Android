@@ -32,17 +32,21 @@ public class ProfesseurDisplayFragment extends Fragment implements IRecyclerView
     private RecyclerView recyclerView;
 
     public static ProfesseurDisplayFragment newInstance(int position) {
+
         ProfesseurDisplayFragment myFragment = new ProfesseurDisplayFragment();
 
         Bundle args = new Bundle();
         args.putInt(String.valueOf(position), position);
         myFragment.setArguments(args);
 
+
+
         return myFragment;
     }
 
     public ProfesseurDisplayFragment() {
         // Required empty public constructor
+
     }
 
     @Override
@@ -122,6 +126,7 @@ public class ProfesseurDisplayFragment extends Fragment implements IRecyclerView
 
         @Override
         protected List<Teacher> doInBackground(Void... params) {
+
             try {
                 final String url = SingletonUbpRestTemplate.BASE_URL + "teacher";
 
