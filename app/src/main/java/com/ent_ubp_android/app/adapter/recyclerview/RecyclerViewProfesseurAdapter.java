@@ -10,8 +10,13 @@ import android.widget.TextView;
 import com.ent_ubp_android.app.Interface.IRecyclerViewClickListener;
 import com.ent_ubp_android.app.R;
 import com.ent_ubp_android.app.model.teacher.*;
+import com.ent_ubp_android.app.model.teacher.contact.adresse.Address;
+import com.ent_ubp_android.app.model.teacher.contact.email.Email;
+import com.ent_ubp_android.app.model.teacher.contact.phone.Phone;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 public class RecyclerViewProfesseurAdapter extends RecyclerView.Adapter<ViewHolder> {
     private static IRecyclerViewClickListener mListener;
@@ -38,11 +43,34 @@ public class RecyclerViewProfesseurAdapter extends RecyclerView.Adapter<ViewHold
         }
 
         public void bind(Teacher teacher) {
+
+
+            Set<Phone> telephones;
+            Set<Email> courriels;
+
             nom.setText(teacher.getName().getLastName());
             prenom.setText(teacher.getName().getFirstName());
-            type.setText(teacher.getType().name());
-            mail.setText(teacher.getContact().getPhones().toString());
-            tel.setText(teacher.getContact().getEmails().toString());
+
+
+            if(teacher.getType().toString().compareTo(TeacherType.UNIVERSITY_TEACHER.toString())==0){
+                type.setText(R.string.professeur_type_university_string);
+            }else{
+                type.setText(R.string.professeur_type_outsider_string);
+            }
+
+            courriels = teacher.getContact().getEmails();
+            telephones = teacher.getContact().getPhones();
+
+        /*récupération du premier SET*/
+            Iterator itC = courriels.iterator();
+            Iterator itT = telephones.iterator();
+
+
+            Email tempmail = (Email) itC.next();
+            Phone tempphone = (Phone) itT.next();
+        /*---------------------------*/
+            mail.setText(tempmail.getDetails().getAddress());
+            tel.setText(tempphone.getDetails().getNumber());
 
         }
 
