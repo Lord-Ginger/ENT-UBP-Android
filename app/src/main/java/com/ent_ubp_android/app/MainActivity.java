@@ -18,6 +18,7 @@ import com.ent_ubp_android.app.fragment.agenda.AgendaFragment;
 import com.ent_ubp_android.app.fragment.FragmentSwitcher;
 import com.ent_ubp_android.app.fragment.classroom.ClassroomMainFragment;
 import com.ent_ubp_android.app.fragment.professeur.ProfesseurMainFragment;
+import com.ent_ubp_android.app.fragment.professeur.home_teacher.TeacherHomeFragment;
 import com.ent_ubp_android.app.fragment.profil.ProfileFragment;
 import com.ent_ubp_android.app.fragment.formation.FormationMainFragment;
 
@@ -85,8 +86,7 @@ public class MainActivity
 
         //Display the profil fragment
         if (id == R.id.action_user){
-            navigationView.setCheckedItem(R.id.menuDrawer_profile);
-            fragmentSwitcher.startAnotherFragment(new ProfileFragment());
+            navigationView.getMenu().performIdentifierAction(navigationView.getMenu().getItem(0).getItemId(), 0);
             return true;
         }
 
@@ -179,6 +179,12 @@ public class MainActivity
                 getSupportActionBar().setTitle(R.string.navigation_menu_professeur);
                 break;
 
+            case R.id.menuDrawer_myCourse:
+                Toast.makeText(getApplicationContext(), R.string.navigation_menu_my_course, Toast.LENGTH_LONG).show();
+                fragment = new TeacherHomeFragment();
+                getSupportActionBar().setTitle(R.string.navigation_menu_my_course);
+                break;
+
             default:
                 Toast.makeText(getApplicationContext(),"Erreur lors du chargement du menu",Toast.LENGTH_SHORT).show();
                 break;
@@ -236,6 +242,11 @@ public class MainActivity
             navigationView.getMenu().getItem(4).setChecked(true);
             getSupportActionBar().setTitle(R.string.navigation_menu_professeur);
         }
+        else if(tag.equals(TeacherHomeFragment.class.getName())){
+            navigationView.getMenu().getItem(5).setChecked(true);
+            getSupportActionBar().setTitle(R.string.navigation_menu_my_course);
+        }
+
     }
 
     private void setNavigationView(){

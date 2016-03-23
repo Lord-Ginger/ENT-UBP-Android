@@ -26,5 +26,10 @@
               android:checked="false"
               android:icon="@mipmap/ic_professor"
               android:title="@string/navigation_menu_professeur"/>
+
+        <item android:id="@+id/menuDrawer_myCourse"
+              android:checked="false"
+              android:icon="@mipmap/ic_home"
+              android:title="@string/navigation_menu_my_course"/>
     </group>
 </menu>

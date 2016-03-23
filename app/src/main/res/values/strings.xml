@@ -11,6 +11,7 @@
     <string name="navigation_menu_formation">Formation</string>
     <string name="navigation_menu_classroom">Salle de cours</string>
     <string name="navigation_menu_professeur">Professeurs</string>
+    <string name="navigation_menu_my_course">Mes cours</string>
     <string name="drawer_open">Slider Menu Opened</string>
     <string name="drawer_close">Slider Menu Closed</string>
 

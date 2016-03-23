@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/teacher_home_cv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:cardElevation="6dp"
+                                    app:cardCornerRadius="2dp"
+                                    app:cardPreventCornerOverlap="false">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView android:id="@+id/teacher_formation"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:gravity="center"
+                  android:padding="10dp"
+                  android:text="Master 1 - Informatique"/>
+
+        <TextView android:id="@+id/teacher_name_type_course"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Complexite - TD"
+                  android:gravity="center"
+                  android:padding="10dp"
+                  android:layout_alignParentLeft="true"
+                  android:layout_alignParentTop="true"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
