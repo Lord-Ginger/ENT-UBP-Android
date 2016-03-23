@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-//TODO: MAKE LINK WITH SERVER
 public class AgendaFragment extends Fragment {
 
     private List<Agenda> agenda;

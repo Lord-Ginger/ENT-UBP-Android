@@ -5,6 +5,7 @@
         android:id="@+id/formation_cv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/agenda_background"
         app:cardElevation="6dp"
         app:cardCornerRadius="2dp"
         app:cardPreventCornerOverlap="false">
@@ -12,6 +13,7 @@
     <TextView android:id="@+id/formation_nom"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
+              android:textColor="@android:color/white"
               android:padding="20dp"
               android:background="?android:attr/selectableItemBackground"/>
 

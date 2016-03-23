@@ -44,6 +44,7 @@
                       android:hint="Nom de la salle"
                       android:padding="15dp"
                       android:gravity="center"
+                      android:singleLine="true"
                       android:textStyle="bold"
                       android:textSize="15sp"
                       android:textColor="?attr/colorPrimaryDark"
@@ -68,6 +69,8 @@
                       android:layout_width="wrap_content"
                       android:layout_height="wrap_content"
                       android:hint="Capacité"
+                      android:inputType="number"
+                      android:singleLine="true"
                       android:padding="15dp"
                       android:gravity="center"
                       android:textStyle="bold"
@@ -134,6 +137,49 @@
                     android:layout_alignParentRight="true"
                     android:layout_toRightOf="@+id/classroom_add_type"
                     android:layout_below="@+id/checkbox_tp"/>
+
+            <TextView android:id="@+id/classroom_add_equipment"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Ajout d'équipement"
+                      android:paddingTop="30dp"
+                      android:paddingRight="30dp"
+                      android:paddingBottom="15dp"
+                      android:paddingLeft="30dp"
+                      android:textSize="18sp"
+                      android:textStyle="bold"
+                      android:textColor="?attr/colorPrimaryDark"
+                      android:layout_centerInParent="true"
+                      android:layout_below="@+id/checkbox_td"/>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/checkbox_equipment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ordinateur"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    app:buttonTint="@color/checked"
+                    android:paddingTop="15dp"
+                    android:paddingRight="37dp"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="36dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/classroom_add_equipment"/>
+
+            <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/checkbox_equipment2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Rétroprojecteur"
+                    android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+                    app:buttonTint="@color/checked"
+                    android:paddingTop="15dp"
+                    android:paddingRight="37dp"
+                    android:paddingBottom="15dp"
+                    android:paddingLeft="36dp"
+                    android:layout_centerInParent="true"
+                    android:layout_below="@+id/checkbox_equipment"/>
+
         </RelativeLayout>
     </ScrollView>
 </LinearLayout>

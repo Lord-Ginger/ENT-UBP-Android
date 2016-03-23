@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:layout_gravity="center"
-        app:cardBackgroundColor="?attr/colorPrimary"
+        app:cardBackgroundColor="@color/agenda_background"
         app:cardElevation="6dp"
         app:cardCornerRadius="2dp"
         app:cardPreventCornerOverlap="false">
@@ -22,6 +22,7 @@
                   android:gravity="center"
                   android:layout_alignParentTop="true"
                   android:layout_alignParentLeft="true"
+                  android:textColor="@android:color/white"
                   android:padding="20dp"
                   android:textStyle="bold"
                   android:text="prenom Prof"/>
@@ -30,6 +31,7 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:gravity="center"
+                  android:textColor="@android:color/white"
                   android:layout_centerInParent="true"
                   android:layout_alignParentLeft="true"
                   android:layout_toRightOf="@+id/professeur_prenom"
@@ -39,6 +41,7 @@
 
         <TextView android:id="@+id/professeur_mail"
                   android:layout_width="wrap_content"
+                  android:textColor="@android:color/white"
                   android:layout_height="wrap_content"
                   android:gravity="center"
                   android:layout_centerInParent="true"
@@ -51,6 +54,7 @@
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:gravity="center"
+                  android:textColor="@android:color/white"
                   android:layout_centerInParent="true"
                   android:layout_alignParentLeft="true"
                   android:layout_below="@+id/professeur_mail"
@@ -61,6 +65,7 @@
         <TextView android:id="@+id/professeur_type"
                   android:gravity="center"
                   android:layout_centerInParent="true"
+                  android:textColor="@android:color/white"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"
                   android:layout_below="@+id/professeur_mail"
