@@ -9,7 +9,7 @@ public class SingletonUbpRestTemplate {
     //Instance Singleton
     private static SingletonUbpRestTemplate instance = new SingletonUbpRestTemplate();
 
-    public static final String BASE_URL = "http://192.168.1.59:8080/api/";
+    public static final String BASE_URL = "http://192.168.1.11:8080/api/";
     private String token;
 
 
